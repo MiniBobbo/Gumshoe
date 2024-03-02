@@ -1,0 +1,4 @@
+>Place:[Name],[x],[y],[animation]   //Places a character in the current scene in the specified location with a certain animation
+>FadeIn                             //Fades the camera in.
+>FadeOut                            //Fades the camera out
+>ChangeBG:[Name]                    //Changes the background to another one

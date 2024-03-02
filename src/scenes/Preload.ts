@@ -63,8 +63,8 @@ export class Preload extends Phaser.Scene {
     
         this.load.setBaseURL('./assets/')
         this.load.multiatlas('atlas', 'atlas.json');
-        this.load.setBaseURL('./assets/scripts/')
-        this.load.text('Intro');
+        // this.load.setBaseURL('./assets/scripts/')
+        this.load.text('Intro','scripts/Intro.txt');
 
     }
 

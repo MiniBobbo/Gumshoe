@@ -17,19 +17,21 @@ export class insPlace implements IInstruction{
         this.y = y * 4;
         this.animation = animation;
     }
+    end(gs: GameScene) {
+        
+    }
 
     start(gs:GameScene) {
         let s = gs.sprites.get(this.name);
+        let animName = `${this.name.toLowerCase()}_${this.animation.toLowerCase()}_0`;
         if (s == undefined) {
-            s = gs.add.sprite(this.x, this.y, 'atlas', `${this.name}_${this.animation}`);
+            s = gs.add.sprite(this.x, this.y, 'atlas', animName);
             gs.sprites.set(this.name, s);
         } else {
             s.x = this.x;
             s.y = this.y;
-            s.setTexture('atlas', `${this.name}_${this.animation}`);
+            s.setFrame(animName);
         }
-
-        gs.events.emit('instructionComplete');
     }
 
 }

@@ -1,3 +1,9 @@
+>ChangeBG:0
 >Place:Barry,68,68,dead
 >Place:Player,185,32,surprised
->FadeIn
+>FadeIn:
+Player:What in the world happened here?
+Player:That looks like... blood!
+>Shake:
+Player:Barry!!!  
+Player:Was this a robbery?  What could have possibly happened here?

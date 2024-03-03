@@ -19,7 +19,7 @@ export class insSay implements IInstruction{
         console.log(`Saying ${this.text}`);
         gs.nameBox.setText(this.name);
         gs.speechBox.setText(this.text);
-        //After clicking, we cna go to the next event.
+        //After clicking, i cna go to the next event.
         gs.input.once('pointerdown', () => {
             gs.events.emit('instructionComplete');
         });

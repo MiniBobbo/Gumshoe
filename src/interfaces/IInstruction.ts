@@ -10,11 +10,16 @@ export interface IInstruction {
 
 
 
+
+
+
+
 export enum InstructionType {
     Place,
     FadeIn,
     FadeOut,
     ChangeBackground,
     Say,
-    Shake
+    Shake,
+    AddClue
 }

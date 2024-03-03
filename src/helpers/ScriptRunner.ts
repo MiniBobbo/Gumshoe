@@ -3,6 +3,8 @@ import { IInstruction } from "../interfaces/IInstruction";
 import { GameScene } from "../scenes/GameScene";
 import { insSay } from "../instructions/insSay";
 import { insShake } from "../instructions/insShake";
+import { insAddClue } from "../instructions/insAddClue";
+import { ClueType } from "../objects/objClue";
 
 export class ScriptRunner {
     static RunScript(scriptName:string, gs:GameScene) {
@@ -47,8 +49,8 @@ export class ScriptRunner {
         
 
         console.log(`Starting script ${scriptName}`);
-        //Queue up the instructions from the script we just loaded.
-        //If there is an error or something we should log it.  
+        //Queue up the instructions from the script i just loaded.
+        //If there is an error or something i should log it.  
         
         let lines = script.split('\n');
         for (let l of lines) {
@@ -61,6 +63,11 @@ export class ScriptRunner {
 
                 //Remove the '>' from the command.
                 command = command.substr(1);
+                //Trim all the arguments.
+                for (let i = 0; i < args.length; i++) {
+                    args[i] = args[i].trim();
+                }
+
                 switch(command) {
                     case 'Place':
                         instruction = new insPlace(args[0], parseInt(args[1]), parseInt(args[2]), args[3]);
@@ -76,6 +83,9 @@ export class ScriptRunner {
                         break;
                     case 'Shake':
                         instruction = new insShake();
+                        break;
+                    case 'AddClue':
+                        instruction = new insAddClue(args[0], args[1] as ClueType);
                         break;
                     default:
                         console.log(`Unrecognized command.  Typo?  ${command}`);

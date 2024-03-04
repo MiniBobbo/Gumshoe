@@ -94,6 +94,27 @@
 					}
 				},
 				{
+					"filename": "Box",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 10,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 10,
+						"h": 10
+					},
+					"frame": {
+						"x": 241,
+						"y": 98,
+						"w": 10,
+						"h": 10
+					}
+				},
+				{
 					"filename": "barry_dead_0",
 					"rotated": false,
 					"trimmed": true,
@@ -141,6 +162,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:296cae62809bdc215ba6daf31e4b981c:dac4b7d369a22988e006f31df742a9d4:cbce6b53f0f49e0bf15173c25c41f876$"
+		"smartupdate": "$TexturePacker:SmartUpdate:e76ae23195d38cffd58b7c5f35cc6f10:6ad7b04b7ff07b1576e0befd0c0b064f:cbce6b53f0f49e0bf15173c25c41f876$"
 	}
 }

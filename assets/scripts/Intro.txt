@@ -1,14 +1,12 @@
->ChangeBG:0
+>Wait:200
 >Place:Barry,68,70,dead
 >Place:Player,185,32,surprised
->FadeIn:
-Player:What in the world happened here?
-Player:That looks like... blood!
->Shake:
->AddClue:Barry,object
-Player:Barry!!!  
-->SetFlag:FoundBarry
->if:FoundBarry
-Narrator:It was in fact Barry, lying on the ground
-Player:Was this a robbery?  
->RunScript:n0
+>AddClue:Barry,person
+>AddClue:Blood,object
+>AddClue:Skateboard,object
+>AddClue:Dead,adjective
+>AddClue:Unconcious,adjective
+>AddClue:Sleeping,adjective
+>AddClue:Missing,adjective
+>AddAssumption:[person,Barry] is [adjective,unconcious] because of a [noun,trip].
+>StartReasonMode:next

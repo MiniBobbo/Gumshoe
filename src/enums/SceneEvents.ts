@@ -4,5 +4,6 @@ export enum SceneEvents {
     StartScript = "StartScript",
     FinishedScript = "FinishedScript",
     CluePressed = "CluePressed",
-    ClueReleased = "ClueReleased"
+    ClueReleased = "ClueReleased",
+    AddAssumption = "AddAssumption"
 }

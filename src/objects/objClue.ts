@@ -1,3 +1,4 @@
+import { C } from "../C";
 import { SceneEvents } from "../enums/SceneEvents";
 import { GameScene } from "../scenes/GameScene";
 
@@ -14,19 +15,19 @@ export class objClue {
 
     constructor(name:string,type:ClueType, gs:GameScene) {
         this.Name = name;
-        this.text = gs.add.text(0,0, name, { fontFamily: 'munro'}).setFontSize(6*4).setWordWrapWidth(20).setStroke('black', 4).setAlign('center');
-        this.sprite = gs.add.nineslice(0, 0, 'atlas', 'Box', 60,12,4,4,4,4).setOrigin(0,0).setScale(4).setInteractive();
-        gs.clueLayer.add(this.sprite);
+        this.text = gs.add.text(0,0, name, { fontFamily: 'munro'}).setFontSize(6*4).setWordWrapWidth(20).setStroke('black', 4).setAlign('center').setInteractive();
+        // this.sprite = gs.add.nineslice(0, 0, 'atlas', 'Box', C.ClueWidth,C.ClueHeight,C.CluePadding,C.CluePadding,C.CluePadding,C.CluePadding).setOrigin(0,0).setScale(4).setInteractive();
+        // gs.clueLayer.add(this.sprite);
         gs.clueLayer.add(this.text);
         this.gs = gs;
         this.color = getColor(type);
         this.text.setTint(this.color);
-        this.sprite.setTint(this.color);
+        // this.sprite.setTint(this.color);
     }
 
     Activate() {
 
-        this.sprite.on('pointerdown', (pointer, localx, localy, event:Phaser.Types.Input.EventData) => {
+        this.text.on('pointerdown', (pointer, localx, localy, event:Phaser.Types.Input.EventData) => {
             console.log(`Clicked ${this.Name}`);
             event.stopPropagation();
             this.gs.events.emit(SceneEvents.CluePressed, {name:this.Name,type:this.type});
@@ -39,8 +40,8 @@ export class objClue {
     }
 
     SetPosition(x:number, y:number) {
-        this.sprite.x = x;
-        this.sprite.y = y;
+        // this.sprite.x = x;
+        // this.sprite.y = y;
         this.text.x = x + 12;
         this.text.y = y + 8;
     }

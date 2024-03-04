@@ -4,7 +4,7 @@ export class objNotice {
     Checked:boolean = false;
     Name:string;
     Script:string;
-    x:number;
+    x:number;6
     Y:number;
     W:number;
     H:number;
@@ -19,7 +19,8 @@ export class objNotice {
         this.Y = y;
         this.W = w;
         this.H = h;
-        this.sprite = gs.add.nineslice(x*4, y*4, 'atlas', 'Box', w,h,4,4,4,4).setOrigin(0,0).setScale(4).setInteractive();
+        this.sprite = gs.add.nineslice(x*4, y*4, 'atlas', 'Box', w,h,4,4,4,4).setOrigin(0,0).setScale(4).setInteractive().setTint(0xaaaaaa);
+        this.sprite.postFX.addShine(1, .2, 5);
         this.text = gs.add.text((x)*4, (y-4)*4, name, { fontFamily: 'munro'}).setFontSize(6*4).setStroke('black', 4);
         gs.hudLayer.add(this.sprite);
         gs.hudLayer.add(this.text);
@@ -32,9 +33,10 @@ export class objNotice {
             console.log(`Clicked ${this.Name}`);
             this.gs.sr.RunScript(this.Script, this.gs);
             event.stopPropagation();
-            this.sprite.setTint(0x777777);
+            // this.sprite.setTint(0x777777);
             this.text.setTint(0x777777);
             this.Checked = true;
+            this.sprite.clearFX();
         });
     }
 

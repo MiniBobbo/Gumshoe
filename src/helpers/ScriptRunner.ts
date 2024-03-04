@@ -85,8 +85,8 @@ export class ScriptRunner {
         let lines = script.split('\n');
         for (let l of lines) {
             let instruction:IInstruction;
-            //Commens start with -
-            if (l[0] == '-') {
+            //Commens start with -. Ingore blank spaces also.
+            if (l.length == 0 || l[0] == '-') {
                 continue;
             }
             if(l[0] == '>') {

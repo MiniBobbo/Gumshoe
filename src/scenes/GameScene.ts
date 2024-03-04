@@ -3,6 +3,7 @@ import { ScriptRunner } from "../helpers/ScriptRunner";
 import { insAddClue } from "../instructions/insAddClue";
 import { ClueType, objClue } from "../objects/objClue";
 import { NoticeMode } from "./NoticeMode";
+import { ReasonMode } from "./ReasonMode";
 
 export class GameScene extends Phaser.Scene {
     background:Phaser.GameObjects.Sprite;
@@ -13,8 +14,10 @@ export class GameScene extends Phaser.Scene {
     sr:ScriptRunner;
     gameLayer:Phaser.GameObjects.Layer;
     hudLayer:Phaser.GameObjects.Layer;
+    clueLayer:Phaser.GameObjects.Layer;
 
     noticeMode:NoticeMode;
+    reasonMode:ReasonMode;
     
     create() {
         this.background = this.add.sprite(0,0,'atlas', 'Areas_0').setOrigin(0,0).setScale(4);
@@ -24,30 +27,26 @@ export class GameScene extends Phaser.Scene {
 
         this.gameLayer = this.add.layer().setDepth(0);
         this.hudLayer = this.add.layer().setVisible(false).setDepth(1);
+        this.clueLayer = this.add.layer().setDepth(2);
 
         this.noticeMode = new NoticeMode(this);
+        this.reasonMode = new ReasonMode(this);
 
         this.CreateEvents();
         this.sr = new ScriptRunner(this);
         this.sr.RunScript('Intro', this);
     
         
+        
     }
 
     CreateEvents() {
-        this.events.on(SceneEvents.AddClue, (clueName:string, cluetype:ClueType) => {
-            this.AddClue(clueName, cluetype);
-        });
     }
 
     DestroyEvents() {
         this.events.removeListener(SceneEvents.AddClue);
     }
 
-    AddClue(clueName:string, cluetype: ClueType) {
-        this.clues.push(new objClue(clueName, cluetype));
-
-    }
 
 }
 

@@ -5,7 +5,7 @@
 Player:What in the world happened here?
 Player:That looks like... blood!
 >Shake:
->AddClue:Barry,person
+>AddClue:Barry,object
 Player:Barry!!!  
 ->SetFlag:FoundBarry
 >if:FoundBarry

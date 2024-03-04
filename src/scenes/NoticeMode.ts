@@ -14,7 +14,17 @@ export class NoticeMode {
     }
 
     AddNotice(name:string, script:string, x:number, y:number, w:number, h:number) {
-        this.NoticeObjects.push(new objNotice(name, script, x, y, w, h, this.gs));
+        let found = false;
+        this.NoticeObjects.forEach((element) => {  
+            if (element.Name == name) {
+                console.log("Notice with name " + name + " already exists. Skipping.");
+                found = true;
+            }
+        });
+
+        //Ignore it if we alreadt created this...
+        if(!found)
+            this.NoticeObjects.push(new objNotice(name, script, x, y, w, h, this.gs));
     }
 
     ClearNotices() {
@@ -40,9 +50,19 @@ export class NoticeMode {
         });
 
         this.gs.events.on(SceneEvents.FinishedScript, () => {
+            let finished = true;
             this.NoticeObjects.forEach(element => {
-                element.Activate();
+                if(!element.Checked)
+                    finished = false;
             });
+            if(finished) {
+                this.EndNoticeMode();
+            } else{
+                this.NoticeObjects.forEach(element => {
+                    element.Activate();
+                });
+            }
+        
         });
     }
 
@@ -51,5 +71,7 @@ export class NoticeMode {
         this.gs.hudLayer.setVisible(false);
         this.ClearNotices();
         this.gs.sr.RunScript(this.nextScript, this.gs);
+        this.gs.events.removeListener(SceneEvents.StartScript);
+        this.gs.events.removeListener(SceneEvents.FinishedScript);
     }
 }

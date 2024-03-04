@@ -9,6 +9,10 @@ export class GameScene extends Phaser.Scene {
     nameBox:Phaser.GameObjects.Text;
     speechBox:Phaser.GameObjects.Text;
     clues:Array<objClue> = [];
+    sr:ScriptRunner;
+    gameLayer:Phaser.GameObjects.Layer;
+    hudLayer:Phaser.GameObjects.Layer;
+    
     create() {
         this.background = this.add.sprite(0,0,'atlas', 'Areas_0').setOrigin(0,0).setScale(4);
         this.sprites = new Map<string, Phaser.GameObjects.Sprite>();
@@ -16,8 +20,8 @@ export class GameScene extends Phaser.Scene {
         this.speechBox= this.add.text(10*4, 110*4, '').setFontSize(8*4).setWordWrapWidth(900);
 
         this.CreateEvents();
-
-        ScriptRunner.RunScript('Intro', this);
+        this.sr = new ScriptRunner(this);
+        this.sr.RunScript('Intro', this);
     
         
     }

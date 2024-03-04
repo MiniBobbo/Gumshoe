@@ -3,3 +3,4 @@
 >FadeOut:                           //Fades the camera out
 >ChangeBG:[Name]                    //Changes the background to another one
 >AddClue:[Name], [Type]             //Adds a clue to the clue list.  The type is for sorting.  
+>RunScript:[Script Name],[insert?]  //Runs another script.  If insert is true then the scripts events are added to the list.  False they are replaced.    

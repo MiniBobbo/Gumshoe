@@ -4,6 +4,7 @@
 >FadeIn:
 Player:What in the world happened here?
 Player:That looks like... blood!
+>RunScript:intro_notice, true
 >Shake:
 >AddClue:Barry,person
 Player:Barry!!!  

@@ -5,23 +5,34 @@ import { insSay } from "../instructions/insSay";
 import { insShake } from "../instructions/insShake";
 import { insAddClue } from "../instructions/insAddClue";
 import { ClueType } from "../objects/objClue";
+import { Script } from "vm";
+import { insRunScript } from "../instructions/insRunScript";
 
 export class ScriptRunner {
-    static RunScript(scriptName:string, gs:GameScene) {
-        let instructionQueue:Array<IInstruction> = [];
-        this.PrepQueue(scriptName, gs, instructionQueue);
-        
+    private instructionQueue:Array<IInstruction> = [];
+    gs:GameScene;
+    constructor(gs:GameScene) {
         //Set uip the event listener for when the instruction is complete.
+        this.gs = gs;
         gs.events.on('instructionComplete', () => {
-            this.RunNextInstruction(gs, instructionQueue);
+            this.RunNextInstruction(gs, this.instructionQueue);
         });
+        
+    }
+    RunScript(scriptName:string, gs:GameScene, insert:boolean = false) {
+        let queue = this.PrepQueue(scriptName, gs);
+        if(insert) {
+            this.instructionQueue = queue.concat(this.instructionQueue);
+        } else {
+            this.instructionQueue = queue;
+        }
 
         //Start the first instruction.
-        this.RunNextInstruction(gs, instructionQueue);
+        this.RunNextInstruction(gs, this.instructionQueue);
 
     }
 
-    static RunNextInstruction(gs:GameScene, instructionQueue:Array<IInstruction>) { 
+    RunNextInstruction(gs:GameScene, instructionQueue:Array<IInstruction>) { 
         if (instructionQueue.length > 0) {
             let instruction = instructionQueue.shift();
             instruction.start(gs);
@@ -32,8 +43,9 @@ export class ScriptRunner {
         }
     }
 
-    private static PrepQueue(scriptName:string, gs:GameScene, instructionQueue:Array<IInstruction>) {
+    private PrepQueue(scriptName:string, gs:GameScene):Array<IInstruction> {
         let script:string;
+        let queue:Array<IInstruction> = [];
         try {
             script = gs.cache.text.get(scriptName);
         } catch {
@@ -55,6 +67,10 @@ export class ScriptRunner {
         let lines = script.split('\n');
         for (let l of lines) {
             let instruction:IInstruction;
+            //Commens start with -
+            if (l[0] == '-') {
+                continue;
+            }
             if(l[0] == '>') {
                 let parts = l.trim().split(':');
                 let command = parts[0];
@@ -79,13 +95,18 @@ export class ScriptRunner {
                         console.log(`Found a fade out command`);
                         break;
                     case 'ChangeBackground':
-                        console.log(`Found a change background command`);
+                        console.log(`Found a change background command: ${args[0]}`);
                         break;
                     case 'Shake':
                         instruction = new insShake();
                         break;
                     case 'AddClue':
                         instruction = new insAddClue(args[0], args[1] as ClueType);
+                        break;
+                    case 'RunScript':
+                        console.log(`Found a run script command: ${args[0]}`);
+                        //Maybe thre is a better way to convert a string to a boolean but I'm not sure what itis...
+                        instruction = new insRunScript(args[0], args[1] == 'true');
                         break;
                     default:
                         console.log(`Unrecognized command.  Typo?  ${command}`);
@@ -98,8 +119,9 @@ export class ScriptRunner {
                 instruction = new insSay(parts[0], parts[1]);
             }
             if (instruction != undefined) {
-                instructionQueue.push(instruction);
+                queue.push(instruction);
             }
         }
+        return queue;
     }
 }

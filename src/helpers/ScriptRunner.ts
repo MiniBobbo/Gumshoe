@@ -8,6 +8,11 @@ import { ClueType } from "../objects/objClue";
 import { Script } from "vm";
 import { insRunScript } from "../instructions/insRunScript";
 import { insFlash } from "../instructions/insFlash";
+import { insAddNotice } from "../instructions/insAddNotice";
+import { SceneEvents } from "../enums/SceneEvents";
+import { insStartNotice } from "../instructions/insStartNotice";
+import { insSetFlag } from "../instructions/insSetFlag";
+import { insIf } from "../instructions/insIf";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -21,6 +26,7 @@ export class ScriptRunner {
         
     }
     RunScript(scriptName:string, gs:GameScene, insert:boolean = false) {
+        gs.events.emit(SceneEvents.StartScript, scriptName);
         let queue = this.PrepQueue(scriptName, gs);
         if(insert) {
             this.instructionQueue = queue.concat(this.instructionQueue);
@@ -34,14 +40,25 @@ export class ScriptRunner {
     }
 
     RunNextInstruction(gs:GameScene, instructionQueue:Array<IInstruction>) { 
-        if (instructionQueue.length > 0) {
+        if (instructionQueue!=null && instructionQueue.length > 0) {
             let instruction = instructionQueue.shift();
             instruction.start(gs);
             //Recursively call this if this instruction isnt' blocking.
             if(!instruction.blocking) {
                 this.RunNextInstruction(gs, instructionQueue);
             }
+        } else {
+            gs.events.emit(SceneEvents.FinishedScript);
         }
+    }
+
+    SkipNextInsruction() {
+        //We need to skip the next instruction.  This would normally be called by the if command, but maybe we can use it for something
+        //else in the future.
+        if (this.instructionQueue.length > 0) {
+            this.instructionQueue.shift();
+        }
+
     }
 
     private PrepQueue(scriptName:string, gs:GameScene):Array<IInstruction> {
@@ -56,7 +73,7 @@ export class ScriptRunner {
 
         //Apparently Phaser doesn't throw an error when you try to load something that doesn't exist...
         if (script == undefined) {
-            console.log(`Script ${scriptName} is undefined`);
+            console.log(`Script ${scriptName} is not loaded.`);
             return;
         }
         
@@ -68,8 +85,8 @@ export class ScriptRunner {
         let lines = script.split('\n');
         for (let l of lines) {
             let instruction:IInstruction;
-            //Commens start with -
-            if (l[0] == '-') {
+            //Commens start with -. Ingore blank spaces also.
+            if (l.length == 0 || l[0] == '-') {
                 continue;
             }
             if(l[0] == '>') {
@@ -111,6 +128,18 @@ export class ScriptRunner {
                         break;
                     case 'Flash':
                         instruction = new insFlash();
+                        break;
+                    case 'AddNotice':
+                        instruction = new insAddNotice(args[0], args[1], parseInt(args[2]), parseInt(args[3]), parseInt(args[4]), parseInt(args[5]));    
+                        break;
+                    case 'StartNoticeMode':
+                        instruction = new insStartNotice(args[0]);    
+                        break;
+                    case 'SetFlag':
+                        instruction = new insSetFlag(args[0]);
+                        break;
+                    case 'if':
+                        instruction = new insIf(args);
                         break;
                     default:
                         console.log(`Unrecognized command.  Typo?  ${command}`);

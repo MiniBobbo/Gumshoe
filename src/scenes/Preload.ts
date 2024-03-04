@@ -1,3 +1,4 @@
+import ts from "typescript";
 
 export class Preload extends Phaser.Scene {
     preload() {
@@ -5,7 +6,9 @@ export class Preload extends Phaser.Scene {
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222, 0.8);
         progressBox.fillRect(240, 270, 320, 50);
-        
+
+        this.load.script('webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
+
         var width = this.cameras.main.width;
         var height = this.cameras.main.height;
         var loadingText = this.make.text({
@@ -58,18 +61,43 @@ export class Preload extends Phaser.Scene {
             percentText.destroy();
             assetText.destroy();
             //@ts-ignore
-            this.scene.start('game');
         }, this);
     
         this.load.setBaseURL('./assets/')
         this.load.multiatlas('atlas', 'atlas.json');
         // this.load.setBaseURL('./assets/scripts/')
-        this.load.text('Intro','scripts/Intro.txt');
-        this.load.text('intro_notice','scripts/intro_notice.txt');
+        this.loadScript('Intro');
+        this.loadScript('intro_notice');
+        this.loadScript('n0');
+        this.loadScript('n0_barry');
+        this.loadScript('n0_blood');
+        this.loadScript('n0_finished');
+        this.loadScript('n0_skateboard');
 
     }
 
+    loadScript(name:string) {
+        this.load.text(name, `scripts/${name}.txt`);
+    }
 
     create() {
+        const element = document.createElement('style');
+        document.head.appendChild(element);
+        const sheet = element.sheet;
+        let styles = '@font-face { font-family: "munro"; src: url("assets/munro.ttf") format("truetype"); }\n';
+        sheet.insertRule(styles, 0);
+
+        //@ts-ignore
+        WebFont.load({
+            custom: {
+                families: [ 'munro' ]
+            },
+            active: function ()
+            {
+            }
+        });
+
+        this.scene.start('game');
+
     }
 }

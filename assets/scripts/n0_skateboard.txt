@@ -1,0 +1,2 @@
+Player:This is Barry's skateboard.   
+Player:Why is it over here in the corner of the room?  That seems like a strange place for it.

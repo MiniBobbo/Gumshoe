@@ -21,6 +21,7 @@ export class insAddClue implements IInstruction{
         gs.events.emit(SceneEvents.AddClue, this.name, this.cluetype);
         // I may want to add something else when a clue appears, so raise an event instead of just ading it to the array.  
         // gs.clues.push(new objClue(this.name, this.cluetype));    
+        
     }
 
     end(gs) {

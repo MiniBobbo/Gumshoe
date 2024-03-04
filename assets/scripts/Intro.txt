@@ -4,8 +4,11 @@
 >FadeIn:
 Player:What in the world happened here?
 Player:That looks like... blood!
->RunScript:intro_notice, true
 >Shake:
->AddClue:Barry,person
+>AddClue:Barry,object
 Player:Barry!!!  
-Player:Was this a robbery?  What could have possibly happened here?
+->SetFlag:FoundBarry
+>if:FoundBarry
+Narrator:It was in fact Barry, lying on the ground
+Player:Was this a robbery?  
+>RunScript:n0

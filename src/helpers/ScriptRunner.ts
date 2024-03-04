@@ -7,6 +7,7 @@ import { insAddClue } from "../instructions/insAddClue";
 import { ClueType } from "../objects/objClue";
 import { Script } from "vm";
 import { insRunScript } from "../instructions/insRunScript";
+import { insFlash } from "../instructions/insFlash";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -107,6 +108,9 @@ export class ScriptRunner {
                         console.log(`Found a run script command: ${args[0]}`);
                         //Maybe thre is a better way to convert a string to a boolean but I'm not sure what itis...
                         instruction = new insRunScript(args[0], args[1] == 'true');
+                        break;
+                    case 'Flash':
+                        instruction = new insFlash();
                         break;
                     default:
                         console.log(`Unrecognized command.  Typo?  ${command}`);

@@ -70,6 +70,7 @@ export class Preload extends Phaser.Scene {
         this.loadScript('intro_notice');
         this.loadScript('n0');
         this.loadScript('n0_barry');
+        this.loadScript('n0_blood');
         this.loadScript('n0_skateboard');
 
     }

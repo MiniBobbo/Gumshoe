@@ -8,68 +8,6 @@ export interface IInstruction {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export enum InstructionType {
     Place,
     FadeIn,
@@ -80,5 +18,8 @@ export enum InstructionType {
     AddClue,
     RunScript,
     Flash,
-    AddNotice
+    AddNotice,
+    StartNotice,
+    SetFlag,
+    If
 }

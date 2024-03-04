@@ -1,2 +1,3 @@
 >AddNotice:Skateboard,n0_skateboard,175,80,30,12
 >AddNotice:Blood,n0_blood,2,54,50,30
+>StartNoticeMode:next

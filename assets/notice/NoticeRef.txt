@@ -1,0 +1,7 @@
+When we start the notice mode we should read in the notice file that is associated with this notice mode.
+Read in the file and create all the objects.  They should be zones that react when clicked.
+
+After the user clicks on something check if all the zones have been clicked.  If all the zones have been clicked we are ready for the next scene.
+
+The notice file name:  nX.txt //X is just a number.
+When a zone is clicked, it will call the script name.  We should name them nX_[Name] to keep things clean.

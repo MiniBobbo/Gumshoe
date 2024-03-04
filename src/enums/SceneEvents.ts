@@ -1,3 +1,4 @@
 export enum SceneEvents {
-    AddClue = 'addclue'
+    AddClue = 'addclue',
+    AddNotice = 'AddNotice'
 }

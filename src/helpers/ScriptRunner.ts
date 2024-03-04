@@ -8,6 +8,7 @@ import { ClueType } from "../objects/objClue";
 import { Script } from "vm";
 import { insRunScript } from "../instructions/insRunScript";
 import { insFlash } from "../instructions/insFlash";
+import { insAddNotice } from "../instructions/insAddNotice";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -34,7 +35,7 @@ export class ScriptRunner {
     }
 
     RunNextInstruction(gs:GameScene, instructionQueue:Array<IInstruction>) { 
-        if (instructionQueue.length > 0) {
+        if (instructionQueue!=null && instructionQueue.length > 0) {
             let instruction = instructionQueue.shift();
             instruction.start(gs);
             //Recursively call this if this instruction isnt' blocking.
@@ -56,7 +57,7 @@ export class ScriptRunner {
 
         //Apparently Phaser doesn't throw an error when you try to load something that doesn't exist...
         if (script == undefined) {
-            console.log(`Script ${scriptName} is undefined`);
+            console.log(`Script ${scriptName} is not loaded.`);
             return;
         }
         
@@ -111,6 +112,9 @@ export class ScriptRunner {
                         break;
                     case 'Flash':
                         instruction = new insFlash();
+                        break;
+                    case 'AddNotice':
+                        instruction = new insAddNotice(args[0], args[1], parseInt(args[2]), parseInt(args[3]), parseInt(args[4]), parseInt(args[5]));    
                         break;
                     default:
                         console.log(`Unrecognized command.  Typo?  ${command}`);

@@ -1,0 +1,3 @@
+Player:Blood has spattered up the wall.
+Player:Barry must have been hit with some kind of weapon from behind to leave this kind of pattern.
+Player:This is really gross...  

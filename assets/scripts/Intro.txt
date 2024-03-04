@@ -9,3 +9,4 @@ Player:That looks like... blood!
 >AddClue:Barry,person
 Player:Barry!!!  
 Player:Was this a robbery?  What could have possibly happened here?
+>RunScript:n0

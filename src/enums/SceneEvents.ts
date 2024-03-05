@@ -8,4 +8,5 @@ export enum SceneEvents {
     AddAssumption = "AddAssumption",
     MysteryCorrect = 'MysteryCorrect',
     AssumptionCorrect = 'AssumptionCorrect',
+    FlashMessage = 'FlashMessage'
 }

@@ -18,6 +18,7 @@ export class GameScene extends Phaser.Scene {
 
     noticeMode:NoticeMode;
     reasonMode:ReasonMode;
+
     
     create() {
         this.gameLayer = this.add.layer().setDepth(0);
@@ -42,6 +43,20 @@ export class GameScene extends Phaser.Scene {
     }
 
     CreateEvents() {
+        this.events.on(SceneEvents.FlashMessage, (message:string, time:number) => {
+            let t = this.add.text(2000, 300, message, { fontFamily: 'munro'}).setFontSize(40*4).setOrigin(0.5,0.5).setDepth(4);
+            this.tweens.add({
+                targets: t,
+                x: -2000,
+                ease: 'Linear',
+                duration: time,
+                repeat: 0,
+                yoyo: false,
+                onComplete: () => {
+                    t.destroy();
+                }
+            });
+        });
     }
 
     DestroyEvents() {

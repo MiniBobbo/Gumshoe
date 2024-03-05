@@ -86,11 +86,13 @@ export class Preload extends Phaser.Scene {
         const sheet = element.sheet;
         let styles = '@font-face { font-family: "munro"; src: url("assets/munro.ttf") format("truetype"); }\n';
         sheet.insertRule(styles, 0);
+        styles = '@font-face { font-family: "tempesta"; src: url("assets/tempesta.ttf") format("truetype"); }\n';
+        sheet.insertRule(styles, 0);
 
         //@ts-ignore
         WebFont.load({
             custom: {
-                families: [ 'munro' ]
+                families: [ 'munro', 'tempesta' ]
             },
             active: function ()
             {

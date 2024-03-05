@@ -110,18 +110,24 @@ export class ReasonMode {
     }
 
     EndReasonMode(){    
-        this.active = false;
-        this.gs.clueLayer.setVisible(false);
-        //This may be a problem.  Will this remove any other preupdate events and make stuff not work in the future?
-        this.gs.events.removeListener('preupdate');
-
-        this.selectedText.setVisible(false);
-        this.selectedClue.name = '';
-        this.selectedClue.type = ClueType.None;
+        this.gs.events.emit(SceneEvents.FlashMessage, "Reasoning complete!", 4000);
+        this.gs.time.addEvent({
+            delay: 4000,
+            callback: () => {
+                this.active = false;
+                this.gs.clueLayer.setVisible(false);
+                //This may be a problem.  Will this remove any other preupdate events and make stuff not work in the future?
+                this.gs.events.removeListener('preupdate');
         
-        this.ClearClues();
-        this.gs.sr.RunScript(this.nextScript, this.gs);
-        this.gs.events.removeListener(SceneEvents.CluePressed);
-        this.gs.events.removeListener(SceneEvents.FinishedScript);
+                this.selectedText.setVisible(false);
+                this.selectedClue.name = '';
+                this.selectedClue.type = ClueType.None;
+                
+                this.ClearClues();
+                this.gs.sr.RunScript(this.nextScript, this.gs);
+                this.gs.events.removeListener(SceneEvents.CluePressed);
+                this.gs.events.removeListener(SceneEvents.FinishedScript);
+                }
+        });
     }
 }

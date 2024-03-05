@@ -77,6 +77,15 @@ export class ReasonMode {
             element.Activate();
         });
 
+        this.gs.events.on(SceneEvents.AssumptionCorrect, () => {
+            let allCorrect = true;
+            this.Assumptions.forEach(assumption => {
+                if(!assumption.Correct)
+                    allCorrect = false;
+            });
+            this.EndReasonMode();
+        });
+
         this.gs.events.on(SceneEvents.CluePressed, (clue:{name:string,type:ClueType}) => {
             this.Clues.forEach(element => {
                 this.selectedClue = clue;
@@ -95,9 +104,6 @@ export class ReasonMode {
                 // element.Activate();
             });
         });
-
-
-
         this.gs.events.on(SceneEvents.FinishedScript, () => {        
             
         });
@@ -105,7 +111,14 @@ export class ReasonMode {
 
     EndReasonMode(){    
         this.active = false;
-        this.gs.hudLayer.setVisible(false);
+        this.gs.clueLayer.setVisible(false);
+        //This may be a problem.  Will this remove any other preupdate events and make stuff not work in the future?
+        this.gs.events.removeListener('preupdate');
+
+        this.selectedText.setVisible(false);
+        this.selectedClue.name = '';
+        this.selectedClue.type = ClueType.None;
+        
         this.ClearClues();
         this.gs.sr.RunScript(this.nextScript, this.gs);
         this.gs.events.removeListener(SceneEvents.CluePressed);

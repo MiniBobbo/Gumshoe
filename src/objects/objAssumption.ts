@@ -12,6 +12,7 @@ export class objAssumption {
     description:string;
     words:Phaser.GameObjects.Text[] = []; 
     mysteries:objMystery[] = [];
+    Correct:boolean = false;
 
     constructor(gs:GameScene, description:string) {
         this.gs = gs;
@@ -41,6 +42,7 @@ export class objAssumption {
                 this.sprite.postFX.addShine();
                 this.gs.events.emit(SceneEvents.AssumptionCorrect);
                 this.Deactivate();
+                this.Correct = true;
             }
         });
 
@@ -59,6 +61,7 @@ export class objAssumption {
     //I'm not quite sure how to do this.  I think we need to draw each word individually, and then position them based on the previous word's size.
     //This will let me position the answers in the correct spots
     ParseText(description:string):{width:number, height:number}{
+        //Split by both spaces and ]
         let parts = description.split(" ");
         let x = C.AssumptionPadding;
         let y = C.AssumptionPadding;

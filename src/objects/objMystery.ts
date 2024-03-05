@@ -48,6 +48,7 @@ export class objMystery {
 
     Deactivate() {
         this.sprite.removeListener('pointerup');
+        this.sprite.removeListener('pointerdown');
     }
 
 

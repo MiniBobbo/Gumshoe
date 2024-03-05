@@ -17,6 +17,7 @@ import { insStartReason } from "../instructions/insStartReason";
 import { insWait } from "../instructions/insWait";
 import { insAddAssumption } from "../instructions/insAddAssumption";
 import { C } from "../C";
+import { insFadeOut } from "../instructions/insFadeOut";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -115,6 +116,7 @@ export class ScriptRunner {
                         break;
                     case 'FadeOut':
                         C.Write(`Found a fade out command`);
+                        instruction = new insFadeOut();
                         break;
                     case 'ChangeBackground':
                         C.Write(`Found a change background command: ${args[0]}`);

@@ -1,3 +1,4 @@
+>FadeOut:
 >Wait:200
 >Place:Barry,68,70,dead
 >Place:Player,185,32,surprised
@@ -15,5 +16,6 @@
 >AddClue:shot,verb
 >AddClue:tripped,verb
 >AddClue:bludgeoned,verb
->AddAssumption:[person,Barry] is [adjective,Dead].  He/she was [verb,shot] by a(n) [object,Shotgun].
->StartReasonMode:next
+->AddAssumption:[person,Barry] is [adjective,Dead] .  He/she was [verb,shot] by a(n) [object,Shotgun] .
+>AddAssumption:[person,Barry]
+>StartReasonMode:intro_notice

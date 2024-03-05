@@ -1,0 +1,16 @@
+>ChangeBG:0
+>Place:Barry,68,70,dead
+>Place:Player,185,32,surprised
+>FadeIn:
+Player:What in the world happened here?
+Player:That looks like... blood!
+>Shake:
+>AddClue:Barry,person
+>AddClue:Blood,object
+>AddClue:Skateboard,object
+Player:Barry!!!  
+->SetFlag:FoundBarry
+>if:FoundBarry
+Narrator:It was in fact Barry, lying on the ground
+Player:Was this a robbery?  
+>RunScript:n0

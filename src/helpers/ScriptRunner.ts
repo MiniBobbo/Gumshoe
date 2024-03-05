@@ -13,6 +13,9 @@ import { SceneEvents } from "../enums/SceneEvents";
 import { insStartNotice } from "../instructions/insStartNotice";
 import { insSetFlag } from "../instructions/insSetFlag";
 import { insIf } from "../instructions/insIf";
+import { insStartReason } from "../instructions/insStartReason";
+import { insWait } from "../instructions/insWait";
+import { insAddAssumption } from "../instructions/insAddAssumption";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -132,14 +135,23 @@ export class ScriptRunner {
                     case 'AddNotice':
                         instruction = new insAddNotice(args[0], args[1], parseInt(args[2]), parseInt(args[3]), parseInt(args[4]), parseInt(args[5]));    
                         break;
+                    case 'AddAssumption':
+                        instruction = new insAddAssumption(parts[1]);    
+                        break;
                     case 'StartNoticeMode':
                         instruction = new insStartNotice(args[0]);    
+                        break;
+                    case 'StartReasonMode':
+                        instruction = new insStartReason(args[0]);    
                         break;
                     case 'SetFlag':
                         instruction = new insSetFlag(args[0]);
                         break;
                     case 'if':
                         instruction = new insIf(args);
+                        break;
+                    case 'Wait':
+                        instruction = new insWait(parseInt(args[0]));
                         break;
                     default:
                         console.log(`Unrecognized command.  Typo?  ${command}`);

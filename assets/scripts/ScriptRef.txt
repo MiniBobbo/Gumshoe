@@ -8,3 +8,14 @@
 >RunScript:[Script Name],[insert?]  //Runs another script.  If insert is true then the scripts events are added to the list.  False they are replaced.    
 >if:[Flag,Flag,...]                 //This will check if the arguments as flags are true or not.  If they all are true then the next line is run.  Otherwise it is skipped.
 >SetFlag:[Flag]                     //Sets the specified flag in currentState to true. 
+>AddAssumption:Text                 //Sets the assumption text.  This has it's own format.  See below/
+
+
+
+ASSUMPTION TEXT:
+The text should be formatted like this (without quotes): "[person,Barry] is [adjective,unconcious] because of a [noun,trip]."
+The words in [] will be replaced with spaces that the player can drag answers into.  They have a special format.
+[{type of clue that goes here},{correct answers separated by commas}]
+
+There can be multiple correct answers.  MAKE SURE THERE ARE NO SPACES IN THIS SECTION OR IT WILL BREAK THE PARSER.
+

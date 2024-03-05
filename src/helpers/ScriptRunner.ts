@@ -16,6 +16,7 @@ import { insIf } from "../instructions/insIf";
 import { insStartReason } from "../instructions/insStartReason";
 import { insWait } from "../instructions/insWait";
 import { insAddAssumption } from "../instructions/insAddAssumption";
+import { C } from "../C";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -70,18 +71,18 @@ export class ScriptRunner {
         try {
             script = gs.cache.text.get(scriptName);
         } catch {
-            console.log(`Can't fetch script ${scriptName}`);
+            C.Write(`Can't fetch script ${scriptName}`);
             return;
         }
 
         //Apparently Phaser doesn't throw an error when you try to load something that doesn't exist...
         if (script == undefined) {
-            console.log(`Script ${scriptName} is not loaded.`);
+            C.Write(`Script ${scriptName} is not loaded.`);
             return;
         }
         
 
-        console.log(`Starting script ${scriptName}`);
+        C.Write(`Starting script ${scriptName}`);
         //Queue up the instructions from the script i just loaded.
         //If there is an error or something i should log it.  
         
@@ -110,13 +111,13 @@ export class ScriptRunner {
                         instruction = new insPlace(args[0], parseInt(args[1]), parseInt(args[2]), args[3]);
                         break;
                     case 'FadeIn':
-                        console.log(`Found a fade in command`);
+                        C.Write(`Found a fade in command`);
                         break;
                     case 'FadeOut':
-                        console.log(`Found a fade out command`);
+                        C.Write(`Found a fade out command`);
                         break;
                     case 'ChangeBackground':
-                        console.log(`Found a change background command: ${args[0]}`);
+                        C.Write(`Found a change background command: ${args[0]}`);
                         break;
                     case 'Shake':
                         instruction = new insShake();
@@ -125,7 +126,7 @@ export class ScriptRunner {
                         instruction = new insAddClue(args[0], args[1] as ClueType);
                         break;
                     case 'RunScript':
-                        console.log(`Found a run script command: ${args[0]}`);
+                        C.Write(`Found a run script command: ${args[0]}`);
                         //Maybe thre is a better way to convert a string to a boolean but I'm not sure what itis...
                         instruction = new insRunScript(args[0], args[1] == 'true');
                         break;
@@ -154,7 +155,7 @@ export class ScriptRunner {
                         instruction = new insWait(parseInt(args[0]));
                         break;
                     default:
-                        console.log(`Unrecognized command.  Typo?  ${command}`);
+                        C.Write(`Unrecognized command.  Typo?  ${command}`);
                         break;
                 }
             }

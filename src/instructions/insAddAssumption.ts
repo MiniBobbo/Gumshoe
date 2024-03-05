@@ -1,3 +1,4 @@
+import { C } from "../C";
 import { SceneEvents } from "../enums/SceneEvents";
 import { IInstruction, InstructionType } from "../interfaces/IInstruction";
 import { ClueType, objClue } from "../objects/objClue";
@@ -15,7 +16,7 @@ export class insAddAssumption implements IInstruction{
     }
 
     start(gs:GameScene) {
-        console.log(`Adding assumption ${this.description}`);
+        C.Write(`Adding assumption ${this.description}`);
         gs.events.emit(SceneEvents.AddAssumption, this.description);
     }
 

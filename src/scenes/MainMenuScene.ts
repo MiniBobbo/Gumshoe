@@ -16,14 +16,14 @@ export class MainMenuScene extends Phaser.Scene {
     }
 
     StartGame(p:Phaser.Input.Pointer, localx:number, localy:number, event:Phaser.Types.Input.EventData) {
-        console.log('Start Button pressed');
+        C.Write('Start Button pressed');
         this.input.removeAllListeners();
         this.cameras.main.fadeOut(1000, 0,0,0);
         this.cameras.main.once('camerafadeoutcomplete', () =>{ this.scene.start('game');})
     }
 
     EraseSaves(p:Phaser.Input.Pointer, localx:number, localy:number, event:Phaser.Types.Input.EventData) {
-        console.log('Erase Saved Data Button Pressed');
+        C.Write('Erase Saved Data Button Pressed');
         localStorage.setItem(C.GAME_NAME, JSON.stringify(C.currentState));
     }
 

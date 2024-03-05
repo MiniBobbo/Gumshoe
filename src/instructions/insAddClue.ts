@@ -1,3 +1,4 @@
+import { C } from "../C";
 import { SceneEvents } from "../enums/SceneEvents";
 import { IInstruction, InstructionType } from "../interfaces/IInstruction";
 import { ClueType, objClue } from "../objects/objClue";
@@ -17,7 +18,7 @@ export class insAddClue implements IInstruction{
     }
 
     start(gs:GameScene) {
-        console.log(`Adding clue ${this.name} type ${this.cluetype}`);
+        C.Write(`Adding clue ${this.name} type ${this.cluetype}`);
         gs.events.emit(SceneEvents.AddClue, this.name, this.cluetype);
         // I may want to add something else when a clue appears, so raise an event instead of just ading it to the array.  
         // gs.clues.push(new objClue(this.name, this.cluetype));    

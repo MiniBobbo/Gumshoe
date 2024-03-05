@@ -20,15 +20,16 @@ export class objClue {
         // gs.clueLayer.add(this.sprite);
         gs.clueLayer.add(this.text);
         this.gs = gs;
-        this.color = getColor(type);
+        this.color = this.getColor(type);
         this.text.setTint(this.color);
+        this.type = type;
         // this.sprite.setTint(this.color);
     }
 
     Activate() {
 
         this.text.on('pointerdown', (pointer, localx, localy, event:Phaser.Types.Input.EventData) => {
-            console.log(`Clicked ${this.Name}`);
+            C.Write(`Clicked ${this.Name}`);
             event.stopPropagation();
             this.gs.events.emit(SceneEvents.CluePressed, {name:this.Name,type:this.type});
 
@@ -45,24 +46,28 @@ export class objClue {
         this.text.x = x + 12;
         this.text.y = y + 8;
     }
+
+    getColor(type: ClueType): number {
+        switch (type) {
+            case ClueType.Object:
+                return 0x00ff00;
+            case ClueType.Verb:
+                return 0xff0000;
+            case ClueType.Location:
+                return 0x0000ff;
+            case ClueType.Person:
+                return 0xffff00;
+        }
+    }
+    
 }
+
 
 export enum ClueType {
     Object = 'object',
     Verb = 'verb',
     Location = 'location',
     Person = 'person',
+    None = 'None'
 }
 
-function getColor(type: ClueType): number {
-    switch (type) {
-        case ClueType.Object:
-            return 0x00ff00;
-        case ClueType.Verb:
-            return 0xff0000;
-        case ClueType.Location:
-            return 0x0000ff;
-        case ClueType.Person:
-            return 0xffff00;
-    }
-}

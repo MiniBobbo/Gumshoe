@@ -1,3 +1,4 @@
+import { C } from "../C";
 import { SceneEvents } from "../enums/SceneEvents";
 import { objAssumption } from "../objects/objAssumption";
 import { ClueType, objClue } from "../objects/objClue";
@@ -34,7 +35,6 @@ export class ReasonMode {
 
     AddAssumption(description: string) {
         let a = new objAssumption(this.gs, description);
-
         this.Assumptions.push(a);
     }
 
@@ -42,7 +42,7 @@ export class ReasonMode {
         let found = false;
         this.Clues.forEach((element) => {  
             if (element.Name == name) {
-                console.log("Clue with name " + name + " already exists. Skipping.");
+                C.Write("Clue with name " + name + " already exists. Skipping.");
                 found = true;
             }
         });
@@ -62,7 +62,7 @@ export class ReasonMode {
         this.Clues = [];
     }
 
-    StartReasonMode(nextScript:string){
+    StartReasonMode(nextScript:string, message:string = ''){
         this.active = true;
         this.gs.clueLayer.setVisible(true);
         this.nextScript = nextScript;
@@ -73,6 +73,10 @@ export class ReasonMode {
         this.Clues.forEach(element => {
             element.Activate();
         });
+        this.Assumptions.forEach(element => {
+            element.Activate();
+        });
+
         this.gs.events.on(SceneEvents.CluePressed, (clue:{name:string,type:ClueType}) => {
             this.Clues.forEach(element => {
                 this.selectedClue = clue;
@@ -86,6 +90,8 @@ export class ReasonMode {
             this.Clues.forEach(element => {
                 //TODO: Add the drop logic.
                 this.selectedText.setVisible(false);
+                this.selectedClue.name = '';
+                this.selectedClue.type = ClueType.None;
                 // element.Activate();
             });
         });

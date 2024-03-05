@@ -2,11 +2,18 @@
 >Place:Barry,68,70,dead
 >Place:Player,185,32,surprised
 >AddClue:Barry,person
+>AddClue:Larry,person
+>AddClue:Perry,person
 >AddClue:Blood,object
 >AddClue:Skateboard,object
+>AddClue:Shotgun,object
 >AddClue:Dead,adjective
 >AddClue:Unconcious,adjective
 >AddClue:Sleeping,adjective
 >AddClue:Missing,adjective
->AddAssumption:[person,Barry] is [adjective,unconcious] because of a [noun,trip].
+>AddClue:Berserking,adjective
+>AddClue:shot,verb
+>AddClue:tripped,verb
+>AddClue:bludgeoned,verb
+>AddAssumption:[person,Barry] is [adjective,Dead].  He/she was [verb,shot] by a(n) [object,Shotgun].
 >StartReasonMode:next

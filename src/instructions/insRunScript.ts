@@ -1,3 +1,4 @@
+import { C } from "../C";
 import { ScriptRunner } from "../helpers/ScriptRunner";
 import { IInstruction, InstructionType } from "../interfaces/IInstruction";
 import { GameScene } from "../scenes/GameScene";
@@ -15,7 +16,7 @@ export class insRunScript implements IInstruction{
     }
 
     start(gs:GameScene) {
-        console.log(`Running script ${this.script}`);
+        C.Write(`Running script ${this.script}`);
         gs.sr.RunScript(this.script, gs, this.insert);
     }
 

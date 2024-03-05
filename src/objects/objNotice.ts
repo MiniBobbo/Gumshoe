@@ -1,3 +1,4 @@
+import { C } from "../C";
 import { GameScene } from "../scenes/GameScene";
 
 export class objNotice {
@@ -30,7 +31,7 @@ export class objNotice {
 
     Activate() {
         this.sprite.on('pointerdown', (pointer, localx, localy, event:Phaser.Types.Input.EventData) => {
-            console.log(`Clicked ${this.Name}`);
+            C.Write(`Clicked ${this.Name}`);
             this.gs.sr.RunScript(this.Script, this.gs);
             event.stopPropagation();
             // this.sprite.setTint(0x777777);

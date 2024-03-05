@@ -1,3 +1,4 @@
+import { C } from "../C";
 import { IInstruction, InstructionType } from "../interfaces/IInstruction";
 import { GameScene } from "../scenes/GameScene";
 
@@ -16,7 +17,7 @@ export class insSay implements IInstruction{
     }
 
     start(gs: GameScene) {
-        console.log(`Saying ${this.text}`);
+        C.Write(`Saying ${this.text}`);
         gs.nameBox.setText(this.name);
         gs.speechBox.setText(this.text);
         //After clicking, i cna go to the next event.

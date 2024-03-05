@@ -1,3 +1,4 @@
+import { C } from "../C";
 import { SceneEvents } from "../enums/SceneEvents";
 import { ScriptRunner } from "../helpers/ScriptRunner";
 import { objNotice } from "../objects/objNotice";
@@ -17,7 +18,7 @@ export class NoticeMode {
         let found = false;
         this.NoticeObjects.forEach((element) => {  
             if (element.Name == name) {
-                console.log("Notice with name " + name + " already exists. Skipping.");
+                C.Write("Notice with name " + name + " already exists. Skipping.");
                 found = true;
             }
         });

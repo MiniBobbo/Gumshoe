@@ -62,7 +62,7 @@ export class ReasonMode {
         this.Clues = [];
     }
 
-    StartReasonMode(nextScript:string, message:string = ''){
+    StartReasonMode(nextScript:string, message:string = '') {
         this.active = true;
         this.gs.clueLayer.setVisible(true);
         this.nextScript = nextScript;

@@ -18,6 +18,8 @@ import { insWait } from "../instructions/insWait";
 import { insAddAssumption } from "../instructions/insAddAssumption";
 import { C } from "../C";
 import { insFadeOut } from "../instructions/insFadeOut";
+import { insStartEffect } from "../instructions/insStartEffect";
+import { insEndEffect } from "../instructions/insEndEffect";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -113,6 +115,14 @@ export class ScriptRunner {
                         break;
                     case 'FadeIn':
                         C.Write(`Found a fade in command`);
+                        break;
+                    case 'StartEffect':
+                        C.Write(`Found a start effect command`);
+                        instruction = new insStartEffect();
+                        break;
+                    case 'EndEffect':
+                        C.Write(`Found an end effect command`);
+                        instruction = new insEndEffect();
                         break;
                     case 'FadeOut':
                         C.Write(`Found a fade out command`);

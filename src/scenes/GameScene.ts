@@ -11,6 +11,7 @@ export class GameScene extends Phaser.Scene {
     sprites:Map<string, Phaser.GameObjects.Sprite>;
     nameBox:Phaser.GameObjects.Text;
     speechBox:Phaser.GameObjects.Text;
+    speechIcon:Phaser.GameObjects.Text;
     clues:Array<objClue> = [];
     sr:ScriptRunner;
     gameLayer:Phaser.GameObjects.Layer;
@@ -33,6 +34,7 @@ export class GameScene extends Phaser.Scene {
         this.sprites = new Map<string, Phaser.GameObjects.Sprite>();
         this.nameBox = this.add.text(2*4, 95*4, '', { fontFamily: 'munro'}).setFontSize(10*4);
         this.speechBox= this.add.text(10*4, 108*4, '', { fontFamily: 'munro'}).setFontSize(8*4).setWordWrapWidth(900);
+        this.speechIcon = this.add.text(230*4, 130*4, '^', { fontFamily: 'munro'}).setFontSize(8*4).setWordWrapWidth(900);
 
         this.gameLayer.add(this.background);
         this.noticeMode = new NoticeMode(this);

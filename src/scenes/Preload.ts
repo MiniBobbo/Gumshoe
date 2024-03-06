@@ -76,6 +76,7 @@ export class Preload extends Phaser.Scene {
         this.loadScript('n0_finished');
         this.loadScript('n0_skateboard');
 
+
     }
 
     loadScript(name:string) {
@@ -83,6 +84,9 @@ export class Preload extends Phaser.Scene {
     }
 
     create() {
+        this.anims.create({ key: 'player_stand', frameRate: 60, frames: this.anims.generateFrameNames('atlas', { prefix: 'player_stand_', end: 0}), repeat: 0 });
+
+
         const element = document.createElement('style');
         document.head.appendChild(element);
         const sheet = element.sheet;

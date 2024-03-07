@@ -20,6 +20,7 @@ import { C } from "../C";
 import { insFadeOut } from "../instructions/insFadeOut";
 import { insStartEffect } from "../instructions/insStartEffect";
 import { insEndEffect } from "../instructions/insEndEffect";
+import { insFadeIn } from "../instructions/insFadeIn";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -120,6 +121,7 @@ export class ScriptRunner {
                         break;
                     case 'FadeIn':
                         C.Write(`Found a fade in command`);
+                        instruction = new insFadeIn();
                         break;
                     case 'StartEffect':
                         C.Write(`Found a start effect command`);

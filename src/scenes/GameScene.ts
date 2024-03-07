@@ -25,12 +25,12 @@ export class GameScene extends Phaser.Scene {
 
     
     create() {
-        this.gameLayer = this.add.layer().setDepth(0);
+        this.gameLayer = this.add.layer().setDepth(0).setAlpha(0);
         this.hudLayer = this.add.layer().setVisible(false).setDepth(2);
         this.clueLayer = this.add.layer().setDepth(3);
         this.effectLayer = this.add.layer().setDepth(1);
 
-        this.background = this.add.sprite(0,0,'atlas','').setOrigin(0,0).setScale(4).setVisible(false);
+        this.background = this.add.sprite(0,0,'atlas','').setOrigin(0,0).setScale(4);
         this.sprites = new Map<string, Phaser.GameObjects.Sprite>();
         this.nameBox = this.add.text(2*4, 95*4, '', { fontFamily: 'munro'}).setFontSize(10*4);
         this.speechBox= this.add.text(10*4, 108*4, '', { fontFamily: 'munro'}).setFontSize(8*4).setWordWrapWidth(900);

@@ -2,7 +2,7 @@
 Order:Why won't you move?  I feel like I've been here for an eternity.  
 Chaos:We are immortal beings.  We have been here for an eternity.
 Order:...
-Order:Fair enough.  But why has THIS move taken so long.
+Order:Fair enough.  But why is THIS move taking so long?
 >Wait:1000
 Chaos:I forget how the horses move.
 Order:Seriously?  

@@ -23,6 +23,7 @@ import { insEndEffect } from "../instructions/insEndEffect";
 import { insFadeIn } from "../instructions/insFadeIn";
 import { insFlip } from "../instructions/insFlip";
 import { insFadeSpriteIn } from "../instructions/insFadeSpriteIn";
+import { insMove } from "../instructions/insMove";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -149,6 +150,9 @@ export class ScriptRunner {
                         break;
                     case 'Flip':
                         instruction = new insFlip(args[0]);
+                        break;
+                    case 'Move':
+                        instruction = new insMove(args[0], parseInt(args[1]), parseInt(args[2]), parseFloat(args[3]));
                         break;
                     case 'AddClue':
                         instruction = new insAddClue(args[0], args[1] as ClueType);

@@ -28,6 +28,7 @@ export class insPlace implements IInstruction{
             s = gs.add.sprite(this.x, this.y, 'atlas', animName);
             gs.sprites.set(this.name, s);
             gs.gameLayer.add(s);
+            s.name = this.name;
         } else {
             s.x = this.x;
             s.y = this.y;

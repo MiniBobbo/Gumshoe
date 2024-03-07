@@ -1,0 +1,24 @@
+>ChangeBG:Areas_1
+>Place:Player,30,50,stand
+>FadeIn:
+Player:...sigh...
+Player:Another shift at Pizza Place.
+>Flip:Player
+>Wait:1000
+Player:Why do I work here again?
+-Placeholder while I work on the graphics.
+>Place:Barry,130,50,stand
+>FadeSpriteIn:Barry,0,.7,1000
+>Wait:1500
+Chaos:This is the one you chose to be your new Avatar of Justice?
+Order:Yep
+Chaos:Not your usual type.  
+Order:What's that supposed to mean?
+Chaos:Normally they are all kingly, muscled and, well...
+Order:Dumb?
+Chaos:Yeah, actually.  
+Order:I thought I would try something different this time.
+Chaos:Ok, fine, but her?
+Order:Just watch...
+>Wait:500
+Player:Wait a second, something is strange here...

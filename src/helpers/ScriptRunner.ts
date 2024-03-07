@@ -21,6 +21,8 @@ import { insFadeOut } from "../instructions/insFadeOut";
 import { insStartEffect } from "../instructions/insStartEffect";
 import { insEndEffect } from "../instructions/insEndEffect";
 import { insFadeIn } from "../instructions/insFadeIn";
+import { insFlip } from "../instructions/insFlip";
+import { insFadeSpriteIn } from "../instructions/insFadeSpriteIn";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -135,11 +137,18 @@ export class ScriptRunner {
                         C.Write(`Found a fade out command`);
                         instruction = new insFadeOut();
                         break;
+                    case 'FadeSpriteIn':
+                        C.Write(`Found a fade sprite in command`);
+                        instruction = new insFadeSpriteIn(args[0], parseFloat(args[1]), parseFloat(args[2]), parseInt(args[3]));
+                        break;
                     case 'ChangeBackground':
                         C.Write(`Found a change background command: ${args[0]}`);
                         break;
                     case 'Shake':
                         instruction = new insShake();
+                        break;
+                    case 'Flip':
+                        instruction = new insFlip(args[0]);
                         break;
                     case 'AddClue':
                         instruction = new insAddClue(args[0], args[1] as ClueType);

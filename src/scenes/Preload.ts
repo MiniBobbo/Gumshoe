@@ -71,6 +71,8 @@ export class Preload extends Phaser.Scene {
         this.loadScript('testAssumption');
         this.loadScript('intro_notice');
         this.loadScript('n0');
+        this.loadScript('e0s0');
+        this.loadScript('e0s1');
         this.loadScript('n0_barry');
         this.loadScript('n0_blood');
         this.loadScript('n0_finished');

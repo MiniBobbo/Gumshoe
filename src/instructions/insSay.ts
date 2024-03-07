@@ -23,13 +23,8 @@ export class insSay implements IInstruction{
         gs.nameBox.setText('');
         gs.speechBox.setText('');
         this.timer.destroy();
-        gs.input.removeListener('pointerdown', () => {
-            if(this.complete)
-                gs.events.emit('instructionComplete');
-            else {
-                this.Advance();
-            }
-        })
+        gs.input.removeListener('pointerdown');
+
     }
 
     start(gs: GameScene) {
@@ -39,12 +34,12 @@ export class insSay implements IInstruction{
         gs.nameBox.setText(this.name);
         // gs.speechBox.setText(this.text);
 
-        // this.timer = gs.time.addEvent({
-        //     delay:C.LetterDelay,
-        //     callback: this.NextLetter,
-        //     callbackScope: this,
-        //     loop: true
-        // });
+        this.timer = gs.time.addEvent({
+            delay:C.LetterDelay,
+            callback: this.NextLetter,
+            callbackScope: this,
+            loop: true
+        });
 
         this.gs.events.on('preupdate', this.Update, this);
         //After clicking, check if we are in procress or finished.
@@ -52,7 +47,7 @@ export class insSay implements IInstruction{
             if(this.complete)
                 gs.events.emit('instructionComplete');
             else {
-                this.Advance();
+                this.CompleteText();
             }
         });
     }
@@ -65,18 +60,19 @@ export class insSay implements IInstruction{
     }
 
     NextLetter() {
+        if(this.complete)
+            return;
         this.count++;
         if(this.count >= this.text.length) {
-            this.Advance();
+            this.CompleteText();
         }
         else {
             this.gs.speechBox.setText(this.text.substr(0, this.count));
         }
     }
 
-    Advance() {
+    CompleteText() {
         this.complete = true;
-        this.timer.destroy();
         this.gs.speechBox.setText(this.text);
     }
 

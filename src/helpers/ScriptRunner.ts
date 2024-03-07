@@ -24,6 +24,7 @@ import { insEndEffect } from "../instructions/insEndEffect";
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
     gs:GameScene;
+    currentInstruction:IInstruction;
     constructor(gs:GameScene) {
         //Set uip the event listener for when the instruction is complete.
         this.gs = gs;
@@ -47,9 +48,13 @@ export class ScriptRunner {
     }
 
     RunNextInstruction(gs:GameScene, instructionQueue:Array<IInstruction>) { 
+        if(this.currentInstruction != undefined) {
+            this.currentInstruction.end(gs);
+        }
         if (instructionQueue!=null && instructionQueue.length > 0) {
             let instruction = instructionQueue.shift();
             instruction.start(gs);
+            this.currentInstruction = instruction;  
             //Recursively call this if this instruction isnt' blocking.
             if(!instruction.blocking) {
                 this.RunNextInstruction(gs, instructionQueue);

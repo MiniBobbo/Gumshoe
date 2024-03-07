@@ -6,7 +6,7 @@ Player:Another shift at Pizza Place.
 >Flip:Player
 >Wait:1000
 Player:Why do I work here again?
->Move:Player,40,50,1
+>Move:Player,40,50,.5
 >Wait:1500
 -Placeholder while I work on the graphics.
 >Place:Barry,130,50,stand

@@ -11,6 +11,7 @@
 >AddAssumption:Text                                         //Sets the assumption text.  This has it's own format.  See below
 >Flip:[Name]                                                //Flips the specified sprite
 >FadeSpriteIn:[Name],[StartAlpha],[EndAlpha],[Duration]     //Fades a sprite in from a value to a value in a duration.
+>Move:[Name],[X],[Y],[Alpha]                                //Moves a sprite from its current location to X,Y.  Fades out and back into the supplied alpha value. 
 
 
 

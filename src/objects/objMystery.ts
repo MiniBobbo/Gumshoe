@@ -8,6 +8,7 @@ export class objMystery {
     type:ClueType;
     answers:Array<string> =[];
     selectedAnswer:string = '';
+    defaultAnswer:string = '';
     sprite:Phaser.GameObjects.NineSlice;
     text:Phaser.GameObjects.Text;
     correct:boolean = false;
@@ -15,6 +16,7 @@ export class objMystery {
     constructor(gs, type:ClueType, answers:Array<string>, defaultAnswer:string = '') {
         this.gs = gs;
         this.type = type;
+        this.defaultAnswer = defaultAnswer;
         this.answers = answers;
         this.sprite = gs.add.nineslice(0, 0, 'atlas', 'AnswerBox', 30,C.ClueHeight-4,4,4,4,4)
         .setOrigin(0,0).setScale(4).setInteractive().setTint(this.getColor(type)).setDepth(1);
@@ -27,7 +29,7 @@ export class objMystery {
     Activate() {
         this.sprite.on('pointerdown', (pointer, localx, localy, event:Phaser.Types.Input.EventData)=>{
             // event.stopPropagation();
-            this.text.setText('');
+            this.text.setText(this.defaultAnswer);
             this.correct = false;
         })
 

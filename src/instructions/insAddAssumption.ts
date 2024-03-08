@@ -22,7 +22,7 @@ export class insAddAssumption implements IInstruction{
 
     end(gs) {
         if (!this.blocking) {
-            gs.events.emit('instructionComplete');
+            
         }
     }
 }

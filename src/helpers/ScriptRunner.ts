@@ -27,6 +27,8 @@ import { insMove } from "../instructions/insMove";
 import { insHop } from "../instructions/insHop";
 import { insChangeBG } from "../instructions/insChangeBG";
 import { insRemove } from "../instructions/insRemove";
+import { insSpriteShake } from "../instructions/insSpriteShake";
+import { insAddObservation } from "../instructions/insAddObservation";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -164,6 +166,9 @@ export class ScriptRunner {
                     case 'Hop':
                         instruction = new insHop(args[0]);
                         break;
+                    case 'SpriteShake':
+                        instruction = new insSpriteShake(args[0]);
+                        break;
                     case 'Move':
                         instruction = new insMove(args[0], parseInt(args[1]), parseInt(args[2]), parseFloat(args[3]));
                         break;
@@ -183,6 +188,9 @@ export class ScriptRunner {
                         break;
                     case 'AddAssumption':
                         instruction = new insAddAssumption(parts[1]);    
+                        break;
+                    case 'AddObservation':
+                        instruction = new insAddObservation(args[0], args[1]);    
                         break;
                     case 'StartNoticeMode':
                         instruction = new insStartNotice(args[0]);    

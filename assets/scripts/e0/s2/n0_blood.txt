@@ -1,4 +1,5 @@
 Player:Blood has spattered up the wall.
 Player:Barry must have been hit with some kind of weapon from behind to leave this kind of pattern.
 Player:This is really gross...  
+>AddObservation:Spatter,The spatter goes out from the same direction that Barry is facing.
 >AddNotice:Barry,e0/s2/n0_barry,52,58,40,25

@@ -10,6 +10,7 @@ export enum SceneEvents {
     AssumptionCorrect = 'AssumptionCorrect',
     FlashMessage = 'FlashMessage',
     StartEffect = 'StartEffect',
-    EndEffect = "EndEffect",
-    DebugMessage = "DebugMessage"
+    EndEffect = 'EndEffect',
+    DebugMessage = 'DebugMessage',
+    AddObservation = 'AddObservation'
 }

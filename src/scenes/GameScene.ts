@@ -59,7 +59,7 @@ export class GameScene extends Phaser.Scene {
         this.sr = new ScriptRunner(this);
         this.sr.RunScript('Intro', this);
     
-        this.debugMessage = this.add.text(10, 10, '', { fontFamily: 'munro'}).setFontSize(30).setDepth(1000);
+        this.debugMessage = this.add.text(10, 10, '', { fontFamily: 'munro'}).setFontSize(30).setDepth(1000).setVisible(false);
         this.events.on(SceneEvents.DebugMessage, (message:string) => {
             this.debugMessage.text = message;
         });

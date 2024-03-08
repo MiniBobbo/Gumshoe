@@ -1,0 +1,2 @@
+Player:Cans of pizza sauce are stacked up here.
+Player:Barry was prepping the most recent pizza orders to go into the oven.

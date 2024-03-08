@@ -1,2 +1,3 @@
-Player:Barry is working but the door to the kitchen is open.  It should be closed and locked.  
+Player:The entrance to the kitchen is closed and locked.  
 Player:I am doing the deliveries tonight, so nobody else should be using the door.
+>AddObservation:Back Door,The back door is closed and locked.

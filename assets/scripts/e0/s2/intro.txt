@@ -4,8 +4,9 @@
 >Place:Player,185,32,surprised
 >FadeIn:
 Player:What in the world happened here?
+>SpriteShake:Player
 Player:That looks like... blood!
 >Shake:
 Player:Barry!!!  
 Player:Was this a robbery?  
->RunScript:e0/s2/n0
+>RunScript:e0/s2/notice

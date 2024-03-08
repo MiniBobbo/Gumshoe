@@ -1,1 +1,1 @@
->RunScript:e0/s2/intro
+>RunScript:tests/testAssumption

@@ -8,7 +8,6 @@ export class objClue {
     type:ClueType;
     x:number;
     Y:number;
-    sprite:Phaser.GameObjects.NineSlice;
     text:Phaser.GameObjects.Text;
     gs:GameScene;
     color:number = 0xffffff;
@@ -16,14 +15,12 @@ export class objClue {
     constructor(name:string,type:ClueType, gs:GameScene) {
         this.Name = name;
         this.text = gs.add.text(0,0, name, { fontFamily: 'munro'}).setFontSize(6*4).setWordWrapWidth(20).setStroke('black', 4).setAlign('center').setInteractive();
-        // this.sprite = gs.add.nineslice(0, 0, 'atlas', 'Box', C.ClueWidth,C.ClueHeight,C.CluePadding,C.CluePadding,C.CluePadding,C.CluePadding).setOrigin(0,0).setScale(4).setInteractive();
-        // gs.clueLayer.add(this.sprite);
         gs.clueLayer.add(this.text);
         this.gs = gs;
         this.color = this.getColor(type);
         this.text.setTint(this.color);
         this.type = type;
-        // this.sprite.setTint(this.color);
+        
     }
 
     Activate() {
@@ -37,7 +34,7 @@ export class objClue {
     }
 
     Deactivate() {
-        this.sprite.removeListener('pointerdown');
+        this.text.removeListener('pointerdown');
     }
 
     SetPosition(x:number, y:number) {

@@ -1,2 +1,3 @@
 Player:My coworker Barry's car.  It is full of old food wrappers and the seats are covered in random stuff.  
 Player:He can be difficult to work with because he is always leaving his stuff all over the place.  
+>AddObservation:Barry,Barry is working tonight.

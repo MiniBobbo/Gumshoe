@@ -14,12 +14,13 @@
 >Move:[Name],[X],[Y],[Alpha]                                //Moves a sprite from its current location to X,Y.  Fades out and back into the supplied alpha value. 
 >AddNotice:[Name],[Script],[X],[Y],[Width],[Height]         //Creates a notice area on the screen.  When the player clicks on the area it will run the script provided.
 >StartNoticeMode:[Script]                                   //Starts the notice mode.  This mode will continue until all the notice areas are complete and then it will run the script.
+>AddObservation:[ID],[Description]                          //Adds an observation to the queue.  
 
 
 ASSUMPTION TEXT:
-The text should be formatted like this (without quotes): "[person,Barry] is [adjective,unconcious] because of a [noun,trip]."
+The text should be formatted like this (without quotes): "[person,Barry,Barry] is [adjective,dead,unconcious] because of a [noun,shotgun,trip]."
 The words in [] will be replaced with spaces that the player can drag answers into.  They have a special format.
-[{type of clue that goes here},{correct answers separated by commas}]
+[{type of clue that goes here},{Assumed value goes here},{correct answers separated by commas}]
 
 There can be multiple correct answers.  MAKE SURE THERE ARE NO SPACES IN THIS SECTION OR IT WILL BREAK THE PARSER.
 

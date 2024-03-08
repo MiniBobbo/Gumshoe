@@ -2,6 +2,8 @@
 >Wait:200
 >Place:Barry,68,70,dead
 >Place:Player,185,32,surprised
+>AddObservation:Wounds,There are no marks on Barry's back
+>AddObservation:Pizza,Barry was prepping pizza.  There is no sauce.
 >AddClue:Barry,person
 >AddClue:Larry,person
 >AddClue:Perry,person
@@ -16,6 +18,6 @@
 >AddClue:shot,verb
 >AddClue:tripped,verb
 >AddClue:bludgeoned,verb
-->AddAssumption:[person,Barry] is [adjective,Dead] .  He/she was [verb,shot] by a(n) [object,Shotgun] .
+->AddAssumption:[person,???,Barry] is [adjective,Dead,Unconcious] .  They [verb,were shot, tripped] by a(n) [object,Shotgun,Skareboard] .
 >AddAssumption:[person,Barry]
 >StartReasonMode:intro_notice

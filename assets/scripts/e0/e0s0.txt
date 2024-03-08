@@ -32,4 +32,4 @@ Order:Chocolate ice cream with pizza flavored gelato?
 Chaos:I am what I am.
 Order:Fine. Let's go. 
 >FadeOut:
->RunScript:
+>RunScript:e0/e0s1

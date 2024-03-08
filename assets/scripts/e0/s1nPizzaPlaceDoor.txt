@@ -1,0 +1,2 @@
+Player:Barry is working but the door to the kitchen is open.  It should be closed and locked.  
+Player:I am doing the deliveries tonight, so nobody else should be using the door.

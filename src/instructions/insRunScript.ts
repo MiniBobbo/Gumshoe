@@ -12,7 +12,8 @@ export class insRunScript implements IInstruction{
     constructor(script: string, insert:boolean = false) {
         this.blocking = true;
         this.insert = insert;
-        this.script = script;
+        let s = script.replace("\\" , "/");
+        this.script = s;
     }
 
     start(gs:GameScene) {

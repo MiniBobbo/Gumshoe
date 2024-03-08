@@ -2,6 +2,7 @@
 >Place:Player,30,50,stand
 >FadeIn:
 Player:...sigh...
+>Hop:Player
 Player:Another shift at Pizza Place.
 >Flip:Player
 >Wait:1000
@@ -24,3 +25,8 @@ Chaos:Ok, fine, but her?
 Order:Just watch...
 >Wait:500
 Player:Wait a second, something is strange here...
+>Shake:
+>Flash:
+:**CRASH**
+Player:What was that?
+>RunScript:e0/e0s1notice

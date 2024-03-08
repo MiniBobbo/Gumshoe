@@ -23,7 +23,19 @@ export class GameScene extends Phaser.Scene {
     reasonMode:ReasonMode;
     effectManager:EffectManager;
 
-    
+    preload() {
+        // let scripts = this.cache.text.get('allScripts');
+        // let lines = scripts.split(',');
+        // for (let l of lines) {
+        //     this.loadScript(l);
+        // }
+    }
+
+    loadScript(name:string) {
+        this.load.text(name, `scripts/${name}.txt`);
+    }
+
+
     create() {
         this.gameLayer = this.add.layer().setDepth(0).setAlpha(0);
         this.hudLayer = this.add.layer().setVisible(false).setDepth(2);

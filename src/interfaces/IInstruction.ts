@@ -22,6 +22,22 @@ export interface IInstruction {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export enum InstructionType {
     Place,
     FadeIn,
@@ -38,5 +54,6 @@ export enum InstructionType {
     If,
     Wait,
     AddAssumption,
-    FadeSpriteIn
+    FadeSpriteIn,
+    Hop
 }

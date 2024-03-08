@@ -24,6 +24,7 @@ import { insFadeIn } from "../instructions/insFadeIn";
 import { insFlip } from "../instructions/insFlip";
 import { insFadeSpriteIn } from "../instructions/insFadeSpriteIn";
 import { insMove } from "../instructions/insMove";
+import { insHop } from "../instructions/insHop";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -150,6 +151,9 @@ export class ScriptRunner {
                         break;
                     case 'Flip':
                         instruction = new insFlip(args[0]);
+                        break;
+                    case 'Hop':
+                        instruction = new insHop(args[0]);
                         break;
                     case 'Move':
                         instruction = new insMove(args[0], parseInt(args[1]), parseInt(args[2]), parseFloat(args[3]));

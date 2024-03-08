@@ -1,2 +1,7 @@
 dist
 node_modules
+assets/scripts/GumshoeScriptCopy.deps.json
+assets/scripts/GumshoeScriptCopy.dll
+assets/scripts/GumshoeScriptCopy.pdb
+assets/scripts/GumshoeScriptCopy.runtimeconfig.json
+assets/scripts/GumshoeScriptCopy.exe

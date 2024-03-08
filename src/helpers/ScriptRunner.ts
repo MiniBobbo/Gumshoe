@@ -25,6 +25,8 @@ import { insFlip } from "../instructions/insFlip";
 import { insFadeSpriteIn } from "../instructions/insFadeSpriteIn";
 import { insMove } from "../instructions/insMove";
 import { insHop } from "../instructions/insHop";
+import { insChangeBG } from "../instructions/insChangeBG";
+import { insRemove } from "../instructions/insRemove";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -46,6 +48,7 @@ export class ScriptRunner {
         } else {
             this.instructionQueue = queue;
         }
+        gs.events.emit(SceneEvents.DebugMessage, `Queue ${this.instructionQueue.length}`);
 
         //Start the first instruction.
         this.RunNextInstruction(gs, this.instructionQueue);
@@ -67,6 +70,8 @@ export class ScriptRunner {
         } else {
             gs.events.emit(SceneEvents.FinishedScript);
         }
+        gs.events.emit(SceneEvents.DebugMessage, `Queue ${this.instructionQueue.length}`);
+
     }
 
     SkipNextInsruction() {
@@ -146,7 +151,7 @@ export class ScriptRunner {
                         C.Write(`Found a fade sprite in command`);
                         instruction = new insFadeSpriteIn(args[0], parseFloat(args[1]), parseFloat(args[2]), parseInt(args[3]));
                         break;
-                    case 'ChangeBackground':
+                    case 'ChangeBG':
                         C.Write(`Found a change background command: ${args[0]}`);
                         instruction = new insChangeBG(args[0]);
                         break;

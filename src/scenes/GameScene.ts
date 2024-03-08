@@ -23,6 +23,8 @@ export class GameScene extends Phaser.Scene {
     reasonMode:ReasonMode;
     effectManager:EffectManager;
 
+    debugMessage:Phaser.GameObjects.Text;
+
     preload() {
         // let scripts = this.cache.text.get('allScripts');
         // let lines = scripts.split(',');
@@ -57,6 +59,10 @@ export class GameScene extends Phaser.Scene {
         this.sr = new ScriptRunner(this);
         this.sr.RunScript('Intro', this);
     
+        this.debugMessage = this.add.text(10, 10, '', { fontFamily: 'munro'}).setFontSize(30).setDepth(1000);
+        this.events.on(SceneEvents.DebugMessage, (message:string) => {
+            this.debugMessage.text = message;
+        });
         
         
     }

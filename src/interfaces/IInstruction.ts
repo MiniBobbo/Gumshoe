@@ -14,6 +14,14 @@ export interface IInstruction {
 
 
 
+
+
+
+
+
+
+
+
 export enum InstructionType {
     Place,
     FadeIn,
@@ -29,5 +37,6 @@ export enum InstructionType {
     SetFlag,
     If,
     Wait,
-    AddAssumption
+    AddAssumption,
+    Remove
 }

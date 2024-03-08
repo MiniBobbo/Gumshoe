@@ -18,6 +18,8 @@ import { insWait } from "../instructions/insWait";
 import { insAddAssumption } from "../instructions/insAddAssumption";
 import { C } from "../C";
 import { insFadeOut } from "../instructions/insFadeOut";
+import { insChangeBG } from "../instructions/insChangeBG";
+import { insRemove } from "../instructions/insRemove";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -111,6 +113,9 @@ export class ScriptRunner {
                     case 'Place':
                         instruction = new insPlace(args[0], parseInt(args[1]), parseInt(args[2]), args[3]);
                         break;
+                    case 'Remove':
+                        instruction = new insRemove(args[0]);
+                        break;
                     case 'FadeIn':
                         C.Write(`Found a fade in command`);
                         break;
@@ -118,8 +123,9 @@ export class ScriptRunner {
                         C.Write(`Found a fade out command`);
                         instruction = new insFadeOut();
                         break;
-                    case 'ChangeBackground':
+                    case 'ChangeBG':
                         C.Write(`Found a change background command: ${args[0]}`);
+                        instruction = new insChangeBG(args[0]);
                         break;
                     case 'Shake':
                         instruction = new insShake();

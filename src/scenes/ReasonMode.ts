@@ -99,6 +99,8 @@ export class ReasonMode {
             this.Clues.forEach(element => {
                 //TODO: Add the drop logic.
                 this.selectedText.setVisible(false);
+                if(this.selectedClue == null)
+                    return;
                 this.selectedClue.name = '';
                 this.selectedClue.type = ClueType.None;
                 // element.Activate();

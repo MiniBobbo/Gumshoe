@@ -1,3 +1,17 @@
->AddNotice:Skateboard,n0_skateboard,175,80,30,12
->AddNotice:Blood,n0_blood,2,54,50,30
->StartNoticeMode:n0_finished
+>AddClue:Barry,person
+>AddClue:Larry,person
+>AddClue:Perry,person
+>AddClue:Blood,object
+>AddClue:Skateboard,object
+>AddClue:Shotgun,object
+>AddClue:Dead,adjective
+>AddClue:Unconcious,adjective
+>AddClue:Sleeping,adjective
+>AddClue:Missing,adjective
+>AddClue:Berserking,adjective
+>AddClue:shot,verb
+>AddClue:tripped,verb
+>AddClue:bludgeoned,verb
+>AddAssumption:[person,Barry] is [adjective,Dead] .  He/she was [verb,shot] by a(n) [object,Shotgun] .
+->AddAssumption:[person,Barry]
+>StartReasonMode:intro_notice

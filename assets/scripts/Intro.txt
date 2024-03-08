@@ -1,21 +1,32 @@
->FadeOut:
->Wait:200
+>ChangeBG:Areas_1
+>Place:Chaos,70,60,Stand
+>Place:Order,170,60,Stand
+>Place:Chess,120,60,Stand
+>Wait:2000
+Order:Are you ever going to make your move?
+Chaos:...
+Order:Honestly, what are you waiting for?
+Chaos:...
+Chaos:I actually forget how the horses move.
+Order:We have been playing this game for how long?  And you still aren't sure what all the pieces do?
+Chaos:You know I don't do well with all these rules.
+>Remove:Order
+>Remove:Chaos
+>Remove:Chess
+->FadeOut:
+>ChangeBG:Areas_0
 >Place:Barry,68,70,dead
 >Place:Player,185,32,surprised
+>FadeIn:
+Player:What in the world happened here?
+Player:That looks like... blood!
+>Shake:
 >AddClue:Barry,person
->AddClue:Larry,person
->AddClue:Perry,person
 >AddClue:Blood,object
 >AddClue:Skateboard,object
->AddClue:Shotgun,object
->AddClue:Dead,adjective
->AddClue:Unconcious,adjective
->AddClue:Sleeping,adjective
->AddClue:Missing,adjective
->AddClue:Berserking,adjective
->AddClue:shot,verb
->AddClue:tripped,verb
->AddClue:bludgeoned,verb
-->AddAssumption:[person,Barry] is [adjective,Dead] .  He/she was [verb,shot] by a(n) [object,Shotgun] .
->AddAssumption:[person,Barry]
->StartReasonMode:intro_notice
+Player:Barry!!!  
+->SetFlag:FoundBarry
+>if:FoundBarry
+Narrator:It was in fact Barry, lying on the ground
+Player:Was this a robbery?  
+>RunScript:n0

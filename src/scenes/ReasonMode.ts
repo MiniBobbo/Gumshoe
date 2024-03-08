@@ -1,4 +1,5 @@
 import { C } from "../C";
+import { SFX } from "../enums/SFX";
 import { SceneEvents } from "../enums/SceneEvents";
 import { objAssumption } from "../objects/objAssumption";
 import { ClueType, objClue } from "../objects/objClue";
@@ -96,7 +97,7 @@ export class ReasonMode {
             this.Observations[i].SetPosition(17, ypos);
             //Drop in animation
             this.Observations[i].text.setScale(2,2);
-            this.gs.time.delayedCall(i*100, () => {
+            this.gs.time.delayedCall(i*200, () => {
                 this.gs.tweens.add({
                     targets: this.Observations[i].text,
                     scaleY: 1,
@@ -105,6 +106,10 @@ export class ReasonMode {
                     duration: 300,
                     repeat: 0,
                     yoyo: false,
+                    onComplete: () => {
+                        this.gs.sound.play(SFX.thump, {volume: 0.5})
+                    }
+
                 });
             
             });

@@ -1,5 +1,6 @@
 import ts from "typescript";
 import { ScriptList } from "../ScriptList";
+import { SFX } from "../enums/SFX";
 
 export class Preload extends Phaser.Scene {
     preload() {
@@ -67,21 +68,10 @@ export class Preload extends Phaser.Scene {
         this.load.setBaseURL('./assets/')
         this.load.multiatlas('atlas', 'atlas.json');
         this.load.image('particle', 'particles/elec3.png');
-        // this.load.setBaseURL('./assets/scripts/')
-        // this.loadScript('Intro');
-        // this.loadScript('testAssumption');
-        // this.loadScript('intro_notice');
-        // this.loadScript('n0');
-        // this.loadScript('e0s0');
-        // this.loadScript('e0/test');
-        // this.loadScript('e0s1');
-        // this.loadScript('e0s1notice');
-        // this.loadScript('n0_barry');
-        // this.loadScript('n0_blood');
-        // this.loadScript('n0_finished');
-        // this.loadScript('n0_skateboard');
-        // this.loadScript('n0_suspect');
-        // this.load.text('allScripts', 'scripts/allScripts.txt');
+        this.load.audio(SFX.thump, 'sfx/thump.ogg');
+        this.load.audio(SFX.PlayerTalk, 'sfx/PlayerTalk.wav');
+        this.load.audio(SFX.click, 'sfx/click.ogg');
+        this.load.audio(SFX.correct, 'sfx/Correct.wav');
 
         ScriptList.scripts.forEach(element => {
             this.loadScript(element);

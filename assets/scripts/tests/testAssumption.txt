@@ -1,7 +1,8 @@
->FadeOut:
+>ChangeBG:Areas_0
 >Wait:200
 >Place:Barry,68,70,dead
 >Place:Player,185,32,surprised
+>FadeIn:
 >AddObservation:Wounds,There are no marks on Barry's back
 >AddObservation:Pizza,Barry was prepping pizza.  There is no sauce.
 >AddClue:Barry,person
@@ -18,6 +19,6 @@
 >AddClue:shot,verb
 >AddClue:tripped,verb
 >AddClue:bludgeoned,verb
-->AddAssumption:[person,???,Barry] is [adjective,Dead,Unconcious] .  They [verb,were shot, tripped] by a(n) [object,Shotgun,Skareboard] .
->AddAssumption:[person,Barry]
+>AddAssumption:[person,???,Barry] is [adjective,Dead,Unconcious] .  They were [verb,shot,tripped] by a(n) [object,Shotgun,Skateboard] .
+->AddAssumption:[person,Barry]
 >StartReasonMode:intro_notice

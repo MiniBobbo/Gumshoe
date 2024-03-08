@@ -1,4 +1,5 @@
 import { C } from "../C";
+import { SFX } from "../enums/SFX";
 import { SceneEvents } from "../enums/SceneEvents";
 import { GameScene } from "../scenes/GameScene";
 import { ClueType } from "./objClue";
@@ -43,6 +44,7 @@ export class objAssumption {
                 this.gs.events.emit(SceneEvents.AssumptionCorrect);
                 this.Deactivate();
                 this.Correct = true;
+                this.gs.sound.play(SFX.correct);
             }
         });
 
@@ -86,7 +88,7 @@ export class objAssumption {
                 for (let i = 0; i < mystery.length; i++) {
                     mystery[i] = mystery[i].toLowerCase();
                 }
-                let m = new objMystery(this.gs, mystery[0] as ClueType, mystery.slice(1));
+                let m = new objMystery(this.gs, mystery[0] as ClueType, mystery.slice(2), mystery[1]);
                 this.c.add(m.sprite);
                 this.c.add(m.text);
                 let w = C.MysteryWidth;

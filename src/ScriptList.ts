@@ -1,0 +1,1 @@
+export class ScriptList { static scripts:string[] = ["allScripts","Intro copy","Intro","intro_notice","n0","n0_barry","n0_blood","n0_finished","n0_skateboard","ScriptRef","testAssumption","e0/e0s0","e0/e0s1","e0/e0s1endnotice","e0/e0s1notice","e0/s1nBarryCar","e0/s1nPizzaPlaceDoor"] }

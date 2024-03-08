@@ -1,0 +1,21 @@
+>FadeOut:
+>Wait:200
+>Place:Barry,68,70,dead
+>Place:Player,185,32,surprised
+>AddClue:Barry,person
+>AddClue:Larry,person
+>AddClue:Perry,person
+>AddClue:Blood,object
+>AddClue:Skateboard,object
+>AddClue:Shotgun,object
+>AddClue:Dead,adjective
+>AddClue:Unconcious,adjective
+>AddClue:Sleeping,adjective
+>AddClue:Missing,adjective
+>AddClue:Berserking,adjective
+>AddClue:shot,verb
+>AddClue:tripped,verb
+>AddClue:bludgeoned,verb
+->AddAssumption:[person,Barry] is [adjective,Dead] .  He/she was [verb,shot] by a(n) [object,Shotgun] .
+>AddAssumption:[person,Barry]
+>StartReasonMode:intro_notice

@@ -14,6 +14,7 @@ export class C {
     static AssumptionTextSize:number = 6 *4;
     static MysteryWidth:number = 30 * 4;
 
+    static LetterDelay:number = 40;
     static DEBUG:boolean = true;
 
     static Write(message:string) {

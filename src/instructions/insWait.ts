@@ -9,6 +9,9 @@ export class insWait implements IInstruction {
         this.waitTime = waitTime;
     }
     start(gs: GameScene) {
+        gs.nameBox.setText('');
+        gs.speechBox.setText('');
+
         gs.time.delayedCall(this.waitTime, () => {
             gs.events.emit('instructionComplete');
         });

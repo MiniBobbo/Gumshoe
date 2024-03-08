@@ -18,12 +18,18 @@ import { insWait } from "../instructions/insWait";
 import { insAddAssumption } from "../instructions/insAddAssumption";
 import { C } from "../C";
 import { insFadeOut } from "../instructions/insFadeOut";
-import { insChangeBG } from "../instructions/insChangeBG";
-import { insRemove } from "../instructions/insRemove";
+import { insStartEffect } from "../instructions/insStartEffect";
+import { insEndEffect } from "../instructions/insEndEffect";
+import { insFadeIn } from "../instructions/insFadeIn";
+import { insFlip } from "../instructions/insFlip";
+import { insFadeSpriteIn } from "../instructions/insFadeSpriteIn";
+import { insMove } from "../instructions/insMove";
+import { insHop } from "../instructions/insHop";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
     gs:GameScene;
+    currentInstruction:IInstruction;
     constructor(gs:GameScene) {
         //Set uip the event listener for when the instruction is complete.
         this.gs = gs;
@@ -47,9 +53,13 @@ export class ScriptRunner {
     }
 
     RunNextInstruction(gs:GameScene, instructionQueue:Array<IInstruction>) { 
+        if(this.currentInstruction != undefined) {
+            this.currentInstruction.end(gs);
+        }
         if (instructionQueue!=null && instructionQueue.length > 0) {
             let instruction = instructionQueue.shift();
             instruction.start(gs);
+            this.currentInstruction = instruction;  
             //Recursively call this if this instruction isnt' blocking.
             if(!instruction.blocking) {
                 this.RunNextInstruction(gs, instructionQueue);
@@ -118,17 +128,39 @@ export class ScriptRunner {
                         break;
                     case 'FadeIn':
                         C.Write(`Found a fade in command`);
+                        instruction = new insFadeIn();
+                        break;
+                    case 'StartEffect':
+                        C.Write(`Found a start effect command`);
+                        instruction = new insStartEffect();
+                        break;
+                    case 'EndEffect':
+                        C.Write(`Found an end effect command`);
+                        instruction = new insEndEffect();
                         break;
                     case 'FadeOut':
                         C.Write(`Found a fade out command`);
                         instruction = new insFadeOut();
                         break;
-                    case 'ChangeBG':
+                    case 'FadeSpriteIn':
+                        C.Write(`Found a fade sprite in command`);
+                        instruction = new insFadeSpriteIn(args[0], parseFloat(args[1]), parseFloat(args[2]), parseInt(args[3]));
+                        break;
+                    case 'ChangeBackground':
                         C.Write(`Found a change background command: ${args[0]}`);
                         instruction = new insChangeBG(args[0]);
                         break;
                     case 'Shake':
                         instruction = new insShake();
+                        break;
+                    case 'Flip':
+                        instruction = new insFlip(args[0]);
+                        break;
+                    case 'Hop':
+                        instruction = new insHop(args[0]);
+                        break;
+                    case 'Move':
+                        instruction = new insMove(args[0], parseInt(args[1]), parseInt(args[2]), parseFloat(args[3]));
                         break;
                     case 'AddClue':
                         instruction = new insAddClue(args[0], args[1] as ClueType);

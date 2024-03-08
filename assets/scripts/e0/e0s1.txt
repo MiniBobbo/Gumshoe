@@ -1,5 +1,5 @@
 >ChangeBG:Areas_1
->Place:Player,30,50,stand
+>Place:Player,30,60,stand
 >FadeIn:
 Player:...sigh...
 >Hop:Player
@@ -7,11 +7,14 @@ Player:Another shift at Pizza Place.
 >Flip:Player
 >Wait:1000
 Player:Why do I work here again?
->Move:Player,40,50,.5
 >Wait:1500
 -Placeholder while I work on the graphics.
->Place:Barry,130,50,stand
->FadeSpriteIn:Barry,0,.7,1000
+>Place:Chaos,80,50,stand
+>FadeSpriteIn:Chaos,0,.6,200
+>Place:Order,120,50,stand
+>Flip:Order
+>FadeSpriteIn:Order,0,.6,200
+->FadeSpriteIn:Barry,0,.7,1000
 >Wait:1500
 Chaos:This is the one you chose to be your new Avatar of Justice?
 Order:Yep

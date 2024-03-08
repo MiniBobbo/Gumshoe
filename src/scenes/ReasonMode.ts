@@ -34,7 +34,7 @@ export class ReasonMode {
             this.AddObservation(name, description); 
         });
         this.g = gs.add.graphics();
-        this.g.fillStyle(0x000000, 0.8);
+        this.g.fillStyle(0x000000, 0.7);
         this.g.fillRect(0,0,960,540).setScrollFactor(0,0);
         this.gs.clueLayer.setVisible(false);
         this.gs.clueLayer.add(this.g);

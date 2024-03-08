@@ -216,6 +216,7 @@ export class ScriptRunner {
             else {
                 let parts = l.trim().split(':');
                 instruction = new insSay(parts[0], parts[1]);
+                queue.push(new insHop(parts[0]));
             }
             if (instruction != undefined) {
                 queue.push(instruction);

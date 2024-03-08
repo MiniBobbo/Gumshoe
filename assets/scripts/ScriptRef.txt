@@ -15,7 +15,7 @@
 >AddNotice:[Name],[Script],[X],[Y],[Width],[Height]         //Creates a notice area on the screen.  When the player clicks on the area it will run the script provided.
 >StartNoticeMode:[Script]                                   //Starts the notice mode.  This mode will continue until all the notice areas are complete and then it will run the script.
 >AddObservation:[ID],[Description]                          //Adds an observation to the queue.  
-
+>Remove:[Name]                                              //Removes a sprite from the scene
 
 ASSUMPTION TEXT:
 The text should be formatted like this (without quotes): "[person,Barry,Barry] is [adjective,dead,unconcious] because of a [noun,shotgun,trip]."

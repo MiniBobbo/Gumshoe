@@ -15,6 +15,7 @@ export class insHop implements IInstruction {
         let s = gs.sprites.get(this.name);
         if (s == undefined) {
             C.Write(`Error:  Sprite ${this.name} not found.  Can't fade in.`);
+            return;
         } 
         s.scaleX = .8;
         s.scaleY = 1.2;
@@ -29,7 +30,7 @@ export class insHop implements IInstruction {
             yoyo: false,
             callbackScope: this,
             onComplete: () => {
-                gs.events.emit('instructionComplete');
+                // gs.events.emit('instructionComplete');
             }
         });
 

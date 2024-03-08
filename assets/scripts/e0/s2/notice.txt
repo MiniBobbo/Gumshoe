@@ -1,3 +1,4 @@
 >AddNotice:Blood,e0/s2/n0_blood,3,55,50,30
 >AddNotice:Skateboard,e0/s2/n0_skateboard,173,75,30,20
+>AddNotice:Cans,e0/s2/n_cans,
 >StartNoticeMode:e0/s2/n0_finished

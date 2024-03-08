@@ -1,4 +1,5 @@
 import { C } from "../C";
+import { SFX } from "../enums/SFX";
 import { IInstruction, InstructionType } from "../interfaces/IInstruction";
 import { GameScene } from "../scenes/GameScene";
 
@@ -68,6 +69,7 @@ export class insSay implements IInstruction{
         }
         else {
             this.gs.speechBox.setText(this.text.substr(0, this.count));
+            SFX.say(this.name);
         }
     }
 

@@ -1,3 +1,4 @@
+import { SFX } from "../enums/SFX";
 import { SceneEvents } from "../enums/SceneEvents";
 import { EffectManager } from "../helpers/EffectManager";
 import { ScriptRunner } from "../helpers/ScriptRunner";
@@ -43,6 +44,8 @@ export class GameScene extends Phaser.Scene {
         this.hudLayer = this.add.layer().setVisible(false).setDepth(2);
         this.clueLayer = this.add.layer().setDepth(3);
         this.effectLayer = this.add.layer().setDepth(1);
+
+        SFX.setGameScene(this);
 
         this.background = this.add.sprite(0,0,'atlas','').setOrigin(0,0).setScale(4);
         this.sprites = new Map<string, Phaser.GameObjects.Sprite>();

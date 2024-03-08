@@ -70,8 +70,11 @@ export class Preload extends Phaser.Scene {
         this.load.image('particle', 'particles/elec3.png');
         this.load.audio(SFX.thump, 'sfx/thump.ogg');
         this.load.audio(SFX.PlayerTalk, 'sfx/PlayerTalk.wav');
+        this.load.audio(SFX.ChaosTalk, 'sfx/ChaosTalk.wav');
+        this.load.audio(SFX.OrderTalk, 'sfx/OrderTalk.wav');
         this.load.audio(SFX.click, 'sfx/click.ogg');
         this.load.audio(SFX.correct, 'sfx/Correct.wav');
+        this.load.audio(SFX.flash, 'sfx/Flash.wav');
 
         ScriptList.scripts.forEach(element => {
             this.loadScript(element);

@@ -1,2 +1,5 @@
 Player:I better get inside...
 >FadeOut:
+>Remove:Order
+>Remove:Chaos
+>RunScript:e0/s2/intro

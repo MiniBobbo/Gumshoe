@@ -1,1 +1,1 @@
->RunScript:tests/testAssumption
+>RunScript:e0/e0s0

@@ -2,6 +2,7 @@
 ->ChangeBG:0
 >Place:Barry,68,70,dead
 >Place:Player,185,32,surprised
+>Flip:Player
 >FadeIn:
 Player:What in the world happened here?
 >SpriteShake:Player

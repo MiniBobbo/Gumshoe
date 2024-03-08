@@ -10,6 +10,7 @@ export class SFX {
     public static correct = "correct";
     public static ChaosTalk = "ChaosTalk";
     public static OrderTalk = "OrderTalk";
+    public static crash = "crash";
 
     public static MasterVolume:number = 1;
     public static SpeakingVolume:number = .05;

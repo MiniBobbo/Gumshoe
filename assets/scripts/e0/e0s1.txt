@@ -1,4 +1,4 @@
->ChangeBG:Areas_1
+>ChangeBG:Areas_2
 >Place:Player,30,60,stand
 >FadeIn:
 Player:...sigh...
@@ -9,9 +9,9 @@ Player:Another shift at Pizza Place.
 Player:Why do I work here again?
 >Wait:1500
 -Placeholder while I work on the graphics.
->Place:Chaos,80,50,stand
+>Place:Chaos,80,40,stand
 >FadeSpriteIn:Chaos,0,.6,200
->Place:Order,120,50,stand
+>Place:Order,120,40,stand
 >Flip:Order
 >FadeSpriteIn:Order,0,.6,200
 ->FadeSpriteIn:Barry,0,.7,1000
@@ -32,6 +32,7 @@ Order:Let's see how she handles it...
 Player:Wait a second, something is strange here...
 >Shake:
 >Flash:
+>PlaySound:crash
 :**CRASH**
 Player:What was that?
 >RunScript:e0/e0s1notice

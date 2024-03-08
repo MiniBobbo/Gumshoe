@@ -4,13 +4,34 @@
 			"image": "atlas.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 244,
-				"h": 836
+				"w": 1908,
+				"h": 211
 			},
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "order_stand_0",
+					"filename": "chaos_shrug_0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 240,
+						"h": 240
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 198,
+						"h": 209
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 198,
+						"h": 209
+					}
+				},
+				{
+					"filename": "order_lean_0",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -21,76 +42,55 @@
 						"x": 35,
 						"y": 0,
 						"w": 182,
-						"h": 213
+						"h": 209
 					},
 					"frame": {
-						"x": 1,
+						"x": 201,
 						"y": 1,
 						"w": 182,
-						"h": 213
+						"h": 209
 					}
 				},
 				{
-					"filename": "AnswerBox",
+					"filename": "chaos_lean_0",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
-						"w": 10,
-						"h": 10
+						"w": 240,
+						"h": 240
 					},
 					"spriteSourceSize": {
-						"x": 0,
+						"x": 35,
 						"y": 0,
-						"w": 10,
-						"h": 10
+						"w": 174,
+						"h": 209
 					},
 					"frame": {
-						"x": 185,
+						"x": 385,
 						"y": 1,
-						"w": 10,
-						"h": 10
+						"w": 174,
+						"h": 209
 					}
 				},
 				{
-					"filename": "Box",
+					"filename": "chaos_smile_0",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
-						"w": 10,
-						"h": 10
+						"w": 240,
+						"h": 240
 					},
 					"spriteSourceSize": {
-						"x": 0,
+						"x": 35,
 						"y": 0,
-						"w": 10,
-						"h": 10
+						"w": 158,
+						"h": 209
 					},
 					"frame": {
-						"x": 197,
+						"x": 561,
 						"y": 1,
-						"w": 10,
-						"h": 10
-					}
-				},
-				{
-					"filename": "YellowBox",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 10,
-						"h": 10
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 10,
-						"h": 10
-					},
-					"frame": {
-						"x": 209,
-						"y": 1,
-						"w": 10,
-						"h": 10
+						"w": 158,
+						"h": 209
 					}
 				},
 				{
@@ -104,81 +104,18 @@
 					"spriteSourceSize": {
 						"x": 35,
 						"y": 0,
-						"w": 174,
+						"w": 158,
 						"h": 209
 					},
 					"frame": {
-						"x": 1,
-						"y": 216,
-						"w": 174,
+						"x": 721,
+						"y": 1,
+						"w": 158,
 						"h": 209
 					}
 				},
 				{
-					"filename": "player_stand_0",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 200
-					},
-					"spriteSourceSize": {
-						"x": 71,
-						"y": 39,
-						"w": 66,
-						"h": 122
-					},
-					"frame": {
-						"x": 177,
-						"y": 216,
-						"w": 66,
-						"h": 122
-					}
-				},
-				{
-					"filename": "Areas_0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 240,
-						"h": 95
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 240,
-						"h": 95
-					},
-					"frame": {
-						"x": 1,
-						"y": 427,
-						"w": 240,
-						"h": 95
-					}
-				},
-				{
-					"filename": "Areas_1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 240,
-						"h": 95
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 240,
-						"h": 95
-					},
-					"frame": {
-						"x": 1,
-						"y": 524,
-						"w": 240,
-						"h": 95
-					}
-				},
-				{
-					"filename": "chess_stand_0",
+					"filename": "order_stand_0",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -186,37 +123,37 @@
 						"h": 240
 					},
 					"spriteSourceSize": {
-						"x": 39,
-						"y": 87,
-						"w": 162,
-						"h": 90
+						"x": 71,
+						"y": 0,
+						"w": 146,
+						"h": 209
 					},
 					"frame": {
-						"x": 1,
-						"y": 621,
-						"w": 162,
-						"h": 90
+						"x": 881,
+						"y": 1,
+						"w": 146,
+						"h": 209
 					}
 				},
 				{
-					"filename": "barry_stand_0",
+					"filename": "order_facepalm_0",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 200,
-						"h": 200
+						"w": 240,
+						"h": 240
 					},
 					"spriteSourceSize": {
-						"x": 55,
-						"y": 35,
-						"w": 74,
-						"h": 122
+						"x": 63,
+						"y": 7,
+						"w": 154,
+						"h": 202
 					},
 					"frame": {
-						"x": 165,
-						"y": 621,
-						"w": 74,
-						"h": 122
+						"x": 1029,
+						"y": 1,
+						"w": 154,
+						"h": 202
 					}
 				},
 				{
@@ -234,8 +171,8 @@
 						"h": 122
 					},
 					"frame": {
-						"x": 1,
-						"y": 713,
+						"x": 1185,
+						"y": 1,
 						"w": 94,
 						"h": 122
 					}
@@ -255,8 +192,8 @@
 						"h": 78
 					},
 					"frame": {
-						"x": 97,
-						"y": 745,
+						"x": 1185,
+						"y": 125,
 						"w": 138,
 						"h": 78
 					}
@@ -276,10 +213,199 @@
 						"h": 78
 					},
 					"frame": {
-						"x": 97,
-						"y": 745,
+						"x": 1185,
+						"y": 125,
 						"w": 138,
 						"h": 78
+					}
+				},
+				{
+					"filename": "barry_stand_0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 55,
+						"y": 35,
+						"w": 74,
+						"h": 122
+					},
+					"frame": {
+						"x": 1281,
+						"y": 1,
+						"w": 74,
+						"h": 122
+					}
+				},
+				{
+					"filename": "AnswerBox",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 10,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 10,
+						"h": 10
+					},
+					"frame": {
+						"x": 1325,
+						"y": 125,
+						"w": 10,
+						"h": 10
+					}
+				},
+				{
+					"filename": "Box",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 10,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 10,
+						"h": 10
+					},
+					"frame": {
+						"x": 1325,
+						"y": 137,
+						"w": 10,
+						"h": 10
+					}
+				},
+				{
+					"filename": "YellowBox",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 10,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 10,
+						"h": 10
+					},
+					"frame": {
+						"x": 1325,
+						"y": 149,
+						"w": 10,
+						"h": 10
+					}
+				},
+				{
+					"filename": "player_stand_0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 71,
+						"y": 39,
+						"w": 66,
+						"h": 122
+					},
+					"frame": {
+						"x": 1357,
+						"y": 1,
+						"w": 66,
+						"h": 122
+					}
+				},
+				{
+					"filename": "Areas_0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 240,
+						"h": 95
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 240,
+						"h": 95
+					},
+					"frame": {
+						"x": 1425,
+						"y": 1,
+						"w": 240,
+						"h": 95
+					}
+				},
+				{
+					"filename": "Areas_1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 240,
+						"h": 95
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 240,
+						"h": 95
+					},
+					"frame": {
+						"x": 1667,
+						"y": 1,
+						"w": 240,
+						"h": 95
+					}
+				},
+				{
+					"filename": "Areas_2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 240,
+						"h": 95
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 240,
+						"h": 95
+					},
+					"frame": {
+						"x": 1425,
+						"y": 98,
+						"w": 240,
+						"h": 95
+					}
+				},
+				{
+					"filename": "chess_stand_0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 240,
+						"h": 240
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 87,
+						"w": 162,
+						"h": 90
+					},
+					"frame": {
+						"x": 1667,
+						"y": 98,
+						"w": 162,
+						"h": 90
 					}
 				}
 			]
@@ -288,6 +414,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:c308ca26ea2cf585584e2add08e1f525:6e4214037eb9771d1a5e70af11637472:cbce6b53f0f49e0bf15173c25c41f876$"
+		"smartupdate": "$TexturePacker:SmartUpdate:6b1924ed0edbcf2fb73c7e6c7772cf0f:d5ccb3e8c053460c0f41e7b2e0df40c4:cbce6b53f0f49e0bf15173c25c41f876$"
 	}
 }

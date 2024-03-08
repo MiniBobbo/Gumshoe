@@ -16,6 +16,7 @@
 >StartNoticeMode:[Script]                                   //Starts the notice mode.  This mode will continue until all the notice areas are complete and then it will run the script.
 >AddObservation:[ID],[Description]                          //Adds an observation to the queue.  
 >Remove:[Name]                                              //Removes a sprite from the scene
+Animate:[Sprite],[Animation]                                //Animates a sprite.  Right now it just changes the frame because I'm not doing animations.
 
 ASSUMPTION TEXT:
 The text should be formatted like this (without quotes): "[person,Barry,Barry] is [adjective,dead,unconcious] because of a [noun,shotgun,trip]."

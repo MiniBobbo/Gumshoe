@@ -75,6 +75,7 @@ export class Preload extends Phaser.Scene {
         this.load.audio(SFX.click, 'sfx/click.ogg');
         this.load.audio(SFX.correct, 'sfx/Correct.wav');
         this.load.audio(SFX.flash, 'sfx/Flash.wav');
+        this.load.audio(SFX.crash, 'sfx/Crash.wav');
 
         ScriptList.scripts.forEach(element => {
             this.loadScript(element);

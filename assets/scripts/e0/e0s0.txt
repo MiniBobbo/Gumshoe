@@ -1,36 +1,50 @@
 >ChangeBG:Areas_1
 >Place:Chess, 120,60,stand
 >Place:Order,155,60,stand
->Place:Chaos,80,60,stand
+>Place:Chaos,80,60,lean
 >FadeIn:
 Order:Why won't you move?  I feel like I've been here for an eternity.  
 Chaos:We are immortal beings.  We have been here for an eternity.
 Order:...
 Order:Fair enough.  But why is THIS move taking so long?
 >Wait:1000
+>Animate:Chaos,smile
 Chaos:I forget how the horses move.
+>Animate:Order,facepalm
 Order:Seriously?  
+>Animate:Chaos,shrug
 Chaos:Hey, I'm the embodiment of chaos.  Rules really aren't my thing.
 Order:Fine. I'll wait.
+>Animate:Order,stand
+>Animate:Chaos,stand
 >Wait:1000
 >Flash:
+>Animate:Chaos,lean
 Chaos:There. Anger takes Justice.  
 Order:...
+>Animate:Order,facepalm
 Order:That's a good move.  
+>Animate:Order,stand
+>Animate:Chaos,smile
 Chaos:It was, wasn't it?
 Order:...Sigh...
 Order:I hate creating new avatars of Justice.  It takes a century to get them working right.
+>Animate:Chaos,stand
 Chaos:So play without one.  
 Order:The rules state I always need an Avatar of Justice.  Besides, you know what would happen down there without an Avatar of Justice?
 Chaos:Heh.
 Order:Right, I forgot who I was talking to for a minute.  Fine, let's go.
 Chaos:What?
 Order:If I need to go recruit you are coming with me.
+>Animate:Chaos,shrug
 Chaos:Aaawwww... Why do I have to come?  You lost your stupid avatar.
+>Animate:Chaos,stand
 Order:You killed my stupid avatar.  Besides, I can't leave you up here alone with the board.  You'd cheat.
+>Animate:Chaos,smile
 Chaos:Heh... I probably would.
 Chaos:Can we stop for ice cream while we are down there?  
 Order:Last time we got ice cream you almost made me sick.
+>Animate:Chaos,stand
 Chaos:..?
 Order:Chocolate ice cream with pizza flavored gelato?
 Chaos:I am what I am.

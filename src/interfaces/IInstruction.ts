@@ -7,6 +7,7 @@ export interface IInstruction {
     end(gs:GameScene);
 }
 
+
 export enum InstructionType {
     Place,
     FadeIn,
@@ -28,5 +29,6 @@ export enum InstructionType {
     AddObservation,
     Remove,
     Animate,
-    PlaySound
+    PlaySound,
+    SetScale
 }

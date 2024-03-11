@@ -12,6 +12,6 @@
 >AddClue:shot,verb
 >AddClue:tripped,verb
 >AddClue:bludgeoned,verb
->AddAssumption:[person,???,Barry] is [adjective,Dead,unconcious] .  They were [verb,shot,tripped] by a(n) [object,Shotgun,skateboard] .
+>AddAssumption:[person,Barry's brother,Barry] is [adjective,Dead,unconcious] .  They were [verb,shot,tripped] by a(n) [object,Shotgun,skateboard] .
 ->AddAssumption:[person,Barry]
 >StartReasonMode:intro_notice

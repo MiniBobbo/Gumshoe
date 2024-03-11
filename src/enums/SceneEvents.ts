@@ -12,5 +12,6 @@ export enum SceneEvents {
     StartEffect = 'StartEffect',
     EndEffect = 'EndEffect',
     DebugMessage = 'DebugMessage',
-    AddObservation = 'AddObservation'
+    AddObservation = 'AddObservation',
+    MysteryGuessed = "MysteryGuessed"
 }

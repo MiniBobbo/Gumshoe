@@ -12,7 +12,7 @@ export class C {
     static AssumptionHeight:number = 10 *4;
     static AssumptionPadding:number = 6 *4;
     static AssumptionTextSize:number = 6 *4;
-    static MysteryWidth:number = 30 * 4;
+    static MysteryWidth:number = 50 * 4;
 
     static LetterDelay:number = 40;
     static DEBUG:boolean = true;

@@ -31,6 +31,7 @@ import { insSpriteShake } from "../instructions/insSpriteShake";
 import { insAddObservation } from "../instructions/insAddObservation";
 import { insAnimate } from "../instructions/insAnimate";
 import { insPlaySound } from "../instructions/insPlaySound";
+import { insSetScale } from "../instructions/insSetScale";
 
 export class ScriptRunner {
     private instructionQueue:Array<IInstruction> = [];
@@ -188,6 +189,9 @@ export class ScriptRunner {
                     case 'AddNotice':
                         instruction = new insAddNotice(args[0], args[1], parseInt(args[2]), parseInt(args[3]), parseInt(args[4]), parseInt(args[5]));    
                         break;
+                    case 'SetScale':
+                        instruction = new insSetScale(args[0], parseFloat(args[1]), parseFloat(args[2]));    
+                        break;
                     case 'Animate':
                         instruction = new insAnimate(args[0], args[1]);    
                         break;
@@ -215,6 +219,7 @@ export class ScriptRunner {
                     case 'PlaySound':
                         instruction = new insPlaySound(args[0]);
                         break;
+                    
                     default:
                         C.Write(`Unrecognized command.  Typo?  ${command}`);
                         break;

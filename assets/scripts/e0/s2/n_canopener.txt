@@ -1,0 +1,5 @@
+Player:This is our industrial can opener.  
+>Flash:
+Player:Wait, is that blood?
+Player:Wait, no.  Just extra pizza sauce.  
+Player:Looks like Barry opened a can recently.

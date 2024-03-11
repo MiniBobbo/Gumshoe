@@ -32,9 +32,12 @@ export class objAssumption {
     }
 
     Activate() {
-        this.gs.events.on(SceneEvents.MysteryCorrect, () => {
+        this.gs.events.on(SceneEvents.MysteryGuessed, () => {
             let allCorrect = true;
+            let allFilledIn = true;
             this.mysteries.forEach(mystery => {
+                if(!mystery.filledIn)
+                    allFilledIn = false;
                 if(!mystery.correct)
                     allCorrect = false;
             });
@@ -45,6 +48,10 @@ export class objAssumption {
                 this.Deactivate();
                 this.Correct = true;
                 this.gs.sound.play(SFX.correct);
+            } else if (allFilledIn) {
+                this.sprite.setTint(0xfa6a0a);
+            } else {
+                this.sprite.setTint(0xffffff);
             }
         });
 
@@ -83,11 +90,20 @@ export class objAssumption {
                 x += w;
             } else {
                 C.Write("Create a mystery");
-                //Drop the first and the last characters of the string
-                let mystery = parts[index].substring(1, parts[index].length - 1).split(',');
-                for (let i = 0; i < mystery.length; i++) {
-                    mystery[i] = mystery[i].toLowerCase();
+                //We might have spaces in the mystery so find the closing ] and make that all one section to parse. 
+                let mysteryText = parts[index].substring(1);
+                while(parts[index][parts[index].length-1] != ']') {
+                    index++;
+                    mysteryText += " " + parts[index];
                 }
+
+                //Drop the last character (]) of the string
+                mysteryText = mysteryText.substring(0, mysteryText.length - 1);
+                let mystery = mysteryText.split(',');
+
+                // for (let i = 0; i < mystery.length; i++) {
+                //     mystery[i] = mystery[i].toLowerCase();
+                // }
                 let m = new objMystery(this.gs, mystery[0] as ClueType, mystery.slice(2), mystery[1]);
                 this.c.add(m.sprite);
                 this.c.add(m.text);

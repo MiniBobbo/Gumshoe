@@ -2,7 +2,14 @@
 ->ChangeBG:0
 >Place:Barry,68,70,dead
 >Place:Player,185,32,surprised
->Flip:Player
+>Place:Order,82,42,stand
+>Place:Chaos,92,42,stand
+>Flip:Chaos
+>SetScale:Order,.3,.3
+>SetScale:Chaos,.3,.3
+>FadeSpriteIn:Order,0,.6,200
+>FadeSpriteIn:Chaos,0,.6,200
+->Flip:Player
 >FadeIn:
 Player:What in the world happened here?
 >SpriteShake:Player

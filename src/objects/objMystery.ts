@@ -13,16 +13,23 @@ export class objMystery {
     sprite:Phaser.GameObjects.NineSlice;
     text:Phaser.GameObjects.Text;
     correct:boolean = false;
+    filledIn:Boolean = false;
 
     constructor(gs, type:ClueType, answers:Array<string>, defaultAnswer:string = '') {
         this.gs = gs;
         this.type = type;
         this.defaultAnswer = defaultAnswer;
         this.answers = answers;
-        this.sprite = gs.add.nineslice(0, 0, 'atlas', 'AnswerBox', 30,C.ClueHeight-4,4,4,4,4)
+        for (let i = 0; i < answers.length; i++) {
+            answers[i] = answers[i].toLowerCase();
+        }
+        this.sprite = gs.add.nineslice(0, 0, 'atlas', 'AnswerBox', C.MysteryWidth/4,C.ClueHeight-4,4,4,4,4)
         .setOrigin(0,0).setScale(4).setInteractive().setTint(this.getColor(type)).setDepth(1);
         this.gs.clueLayer.add(this.sprite);
         this.selectedAnswer = defaultAnswer;
+        if (defaultAnswer != '') {
+            this.filledIn = true;
+        }
         this.text = gs.add.text(0,0, defaultAnswer, { fontFamily: 'munro'}).setFontSize(C.AssumptionTextSize).setOrigin(0,0).setTint(0x555555).setDepth(2);
         this.gs.clueLayer.add(this.text);
     }
@@ -31,20 +38,30 @@ export class objMystery {
         this.sprite.on('pointerdown', (pointer, localx, localy, event:Phaser.Types.Input.EventData)=>{
             // event.stopPropagation();
             this.text.setText(this.defaultAnswer).setTint(0x555555);
-        
+            this.selectedAnswer = this.defaultAnswer;
+            if (this.defaultAnswer != '') {
+                this.filledIn = true;
+            } else {
+                this.filledIn = false;
+            }
             this.correct = false;
             this.gs.sound.play(SFX.click);
+            this.gs.events.emit(SceneEvents.MysteryGuessed, this.gs.reasonMode.selectedClue.name);
+
         })
 
         this.sprite.on('pointerup', (pointer, localx, localy, event:Phaser.Types.Input.EventData) => {
             C.Write(`Dropped ${this.gs.reasonMode.selectedClue.name}`);
             if(this.gs.reasonMode.selectedClue.type == this.type) {
                 this.text.setText(this.gs.reasonMode.selectedClue.name).setTint(0x000000);
+                this.selectedAnswer = this.gs.reasonMode.selectedClue.name.toLowerCase();
                 this.gs.sound.play(SFX.click);
+                this.filledIn = true;   
                 if(this.answers.indexOf(this.gs.reasonMode.selectedClue.name.toLowerCase()) > -1) {
                     this.correct = true;
                     this.gs.events.emit(SceneEvents.MysteryCorrect, this.gs.reasonMode.selectedClue.name);
                 }
+                this.gs.events.emit(SceneEvents.MysteryGuessed, this.gs.reasonMode.selectedClue.name);
             }
             // event.stopPropagation();
 
